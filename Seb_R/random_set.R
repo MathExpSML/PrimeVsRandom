@@ -1,6 +1,6 @@
-randvar <- replicate(10000-1,runif(1)) #Generate a random variable
+randvar <- replicate(100000-1,runif(1)) #Generate a random variable
 df <- tibble(
-  x=seq(2,10000), #create vector from 2 to n
+  x=seq(2,100000), #create vector from 2 to n
   is.prime = is_prime(x),
   prime_cnt = sapply(x,FUN=fpi), #count number of primes prior to X
   xlog = x/log(x), #computes x/log(x)
