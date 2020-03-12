@@ -17,6 +17,8 @@ df[df$valid == TRUE,]
 df %>% ggplot() + 
   geom_line(aes(x,abs(valid_cnt))) +
   geom_line(aes(x,abs(prime_cnt)), color="red") + 
+  labs(x="n",y="count") +
 # geom_line(aes(x,x/log(x)), color="blue") 
+  theme_minimal()
 
 ggsave("random_set.pdf",path="Seb_R")
