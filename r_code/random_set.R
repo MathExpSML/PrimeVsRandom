@@ -21,4 +21,4 @@ df %>% ggplot() +
 # geom_line(aes(x,x/log(x)), color="blue") 
   theme_minimal()
 
-ggsave("random_set.pdf",path="Seb_R")
+ggsave("random_set.pdf",path="images")
