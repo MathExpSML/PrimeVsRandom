@@ -23,4 +23,4 @@ def randSet(n):
 
 plt.plot([i+1 for i in range(bound)],[Pi(i+1)for i in range(bound)])
 plt.plot([i+1 for i in range(bound)],[randSet(i+1)for i in range(bound)])
-plt.show()
+plt.savefig('TP1/plot.pdf')
