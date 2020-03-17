@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 import math, random
 
-bound = 1000
+bound = 10000
 
 prime= []
 for i in range(2, bound+1):
@@ -23,4 +23,4 @@ def randSet(n):
 
 plt.plot([i+1 for i in range(bound)],[Pi(i+1)for i in range(bound)])
 plt.plot([i+1 for i in range(bound)],[randSet(i+1)for i in range(bound)])
-plt.show()
+plt.savefig("images/test.pdf")
