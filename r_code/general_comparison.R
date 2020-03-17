@@ -28,5 +28,6 @@ df <- rbind(
   Rcount, 
   Rcount2
 )                  
-df %>% filter(x >= 0) %>% ggplot() + geom_line(aes(x,1/(y/x),color = label))
+df %>% filter(x >= 0) %>% ggplot() + geom_line(aes(x,y,color = label)) + 
+  theme_minimal()
 ggsave("comparison.pdf",path="images")
