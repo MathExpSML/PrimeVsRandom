@@ -21,19 +21,19 @@ lix <- data.frame(x, y = sapply(x, li), label = "li(x)")
 xlogx <- data.frame(x, y = sapply(x,xlog), label = "x/log(x)")
 pix <- data.frame(x, y = sapply(x,pi_x), label = "pi(x)")
 Rcount <- data.frame(x, y = sapply(x,RCount,df = Pi_tot),label="random using Pi(x)/x")
-Log_Distrib <- data.frame(x, y = sapply(x,RCount,df = Log_tot),label="random using 1/log(x)")
+Log_Sample <- data.frame(x, y = sapply(x,RCount,df = Log_tot),label="random sample using 1/log(x)")
 
 df <- rbind(
   pix,
   lix,
   #xlogx,
   #Rcount, 
-  Log_Distrib
+  Log_Sample
 )                  
-df %>% ggplot() +
+df[df$x >= 80000] ggplot() +
   geom_line(aes(x,y,color = label)) + 
   theme_minimal() + 
-  theme(legend.position="bottom") +
+  #theme(legend.position="bottom") +
   labs(color="function")
 
-ggsave("comparison.pdf",path="images")
+#ggsave("comparison.pdf",path="images")
