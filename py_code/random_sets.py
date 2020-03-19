@@ -73,5 +73,5 @@ plt.plot([i + 2 for i in range(bound)], [Pi(i+2) for i in range(bound)])
 plt.plot([i + 2 for i in range(bound)], [sigma(i+2) for i in range(bound)])
 #plt.plot([i + 2 for i in range(bound)], [(i+2)/log(i+2) for i in range(bound)])
 plt.plot([i + 2 for i in range(bound)], [li(i+2) - li(2) for i in range(bound)])
-plt.savefig("../images/test.pdf")
+plt.show()
 
