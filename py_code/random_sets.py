@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from math import log, fabs, sqrt, pi, ceil, floor
-from mpmath import li
+from mpmath import li, findroot
 from random import choice
 
 
@@ -12,6 +12,9 @@ def primes(N):
             prime.add(n)
             yield n
 
+def g(n):
+    return (1 / pi) * sqrt(n) * (log(n))**(5/2)
+
 
 def Q(N):
     """Assume N is an integer, bigger than 26, generate Q(x) a random set up to N"""
@@ -19,12 +22,12 @@ def Q(N):
     for x in q:
         yield x
     qn0 = 26
-    for i in range(12, N, 1):
-        a = ceil(ali(i) - (1 / pi) * sqrt(i) * (log(i)) ** (5 / 2))
+    for i in range(11, N, 1):
+        a = ceil(ali(i) - g(i))
         if a < qn0:
             a = qn0 + 1
-        b = floor(ali(i) + (1 / pi) * sqrt(i) * (log(i)) ** (5 / 2))
-        qn1 = choice([k for k in range(a, b + 1, 1)])
+        b = floor(ali(i) + g(i))
+        qn1 = choice([k for k in range(a, b, 1)])
         if qn1 <= N:
             qn0 = qn1
             yield qn1
@@ -53,25 +56,12 @@ def Li(x):
 
 def ali(x):
     """Return ali(x) such that li(ali(x)) = x."""
-    y0, b = 2, 2
-    while li(b) <= x:
-        b += 10  # to optimize.
-    while fabs(li(y0) - x) > 10 ** -9:
-        yn = (y0 + b) / 2
-        if li(y0) < x < li(yn):
-            b = yn
-        elif li(yn) <= x <= li(b):
-            y0 = yn
-        if li(y0) == x:
-            return y0
-    return y0
+    return findroot(lambda y: li(y) - x, - 7).real
 
-
-bound = 5000
+bound = 10**6
 q = Q(bound)
-plt.plot([i + 2 for i in range(bound)], [Pi(i+2) for i in range(bound)])
-plt.plot([i + 2 for i in range(bound)], [sigma(i+2) for i in range(bound)])
-#plt.plot([i + 2 for i in range(bound)], [(i+2)/log(i+2) for i in range(bound)])
-plt.plot([i + 2 for i in range(bound)], [li(i+2) - li(2) for i in range(bound)])
-plt.savefig("../images/test.pdf")
+print(li(bound))
+print(pi(bound))
+print(sigma(bound))
+print(bound/log(bound))
 
