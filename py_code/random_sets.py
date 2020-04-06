@@ -19,15 +19,15 @@ def g(n):
 def Q(N):
     """Assume N is an integer, bigger than 26, generate Q(x) a random set up to N"""
     q = [2, 3, 4, 5, 8, 10, 13, 16, 19, 23, 26]
+    qn0 = 26
     for x in q:
         yield x
-    qn0 = 26
     for i in range(11, N, 1):
         a = ceil(ali(i) - g(i))
         if a < qn0:
             a = qn0 + 1
         b = floor(ali(i) + g(i))
-        qn1 = choice([k for k in range(a, b, 1)])
+        qn1 = choice([k for k in range(a, b+1, 1)])
         if qn1 <= N:
             qn0 = qn1
             yield qn1
@@ -58,10 +58,10 @@ def ali(x):
     """Return ali(x) such that li(ali(x)) = x."""
     return findroot(lambda y: li(y) - x, - 7).real
 
-bound = 10**6
+bound = 10**4
 q = Q(bound)
-print(li(bound))
-print(pi(bound))
-print(sigma(bound))
-print(bound/log(bound))
-
+for i in range(2, bound+1, 1):
+    if i % (bound/10) == 0:
+        a = Pi(i)
+        b = sigma(i)
+        print(li(i) - a, a - b)
