@@ -68,20 +68,32 @@ def ali(x):
     return findroot(lambda y: li(y) - x, - 7).real
 
 def test1():
-    """Test whether sigma(x) ~ x/log(x).
-    Return a list which contains sigma(x) such that bound-9 <= x <= bound."""
-    values = []
-    for i in range(-9, 1, 1):
-        values.append(sigma(bound+i)/((bound+i)/log(bound+i)))
-    return values
+    """Test whether sigma(x) ~ x/log(x) by plotting the graph of sigma(x) / (x/(log(x))."""
+    x = [i for i in range(100, 10**6+1, 100)]
+    y = [sigma(i)/(i/log(i)) for i in x]
+    g, = plt.plot(x, y)
+    plt.legend([g], ['sigma(x) / (x/(log(x))'])
+    plt.title("sigma(x) ~ x/log(x)")
+    plt.xlabel('x')
+    plt.savefig('images/test1.pdf')
+
+def test2():
+    """Test whether sigma(x) ~ Li(x) by plotting the graph of sigma(x) / Li(x)."""
+    x = [i for i in range(100, 10**6+1, 100)]
+    y = [sigma(i)/Li(i) for i in x]
+    g, = plt.plot(x, y)
+    plt.legend([g], ['sigma(x) / Li(x)'])
+    plt.title("sigma(x) ~ Li(x)")
+    plt.xlabel('x')
+    plt.savefig('images/test2.pdf')
 
 
-bound = 10**5
+bound = 10**6
 q = list(Q(bound))
-p = list(primes(bound))
+#p = list(primes(bound))
 
 # The following code ...
-#x = [i for i in range(1000, 10**5+1, 1000)]
+#x = [i for i in range(100, (10**5)+1, 100)]
 #y1 = [Li(i) for i in x]
 #y2 = [Pi(i) for i in x]
 #y3 = [sigma(i) for i in x]
@@ -95,17 +107,7 @@ p = list(primes(bound))
 #plt.legend([g1, g2, g3, g4], ['Li(x)', 'pi(x)', 'sigma(x)', 'x/log(x)'])
 #plt.title("Random Sets")
 #plt.xlabel('x')
-#plt.ylabel('y')
 
 #plt.savefig('images/analytic_approach_sets.pdf')
 
-x = [i for i in range(10, 10**5+1, 10)]
-y = [sigma(i)/(i/log(i)) for i in x]
-
-g, = plt.plot(x, y)
-plt.legend([g], ['sigma(x) / (x/(log(x))'])
-plt.title("sigma(x) ~ x/log(x)")
-plt.xlabel('x')
-plt.ylabel('y')
-
-plt.savefig('images/test1.pdf')
+test2()
