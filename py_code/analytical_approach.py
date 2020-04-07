@@ -90,24 +90,22 @@ def test2():
 
 bound = 10**6
 q = list(Q(bound))
-#p = list(primes(bound))
+p = list(primes(bound))
 
-# The following code ...
-#x = [i for i in range(100, (10**5)+1, 100)]
-#y1 = [Li(i) for i in x]
-#y2 = [Pi(i) for i in x]
-#y3 = [sigma(i) for i in x]
-#y4 = [i/log(i) for i in x]
+ The following code ...
+x = [i for i in range(100, (10**5)+1, 100)]
+y1 = [Li(i) for i in x]
+y2 = [Pi(i) for i in x]
+y3 = [sigma(i) for i in x]
+y4 = [i/log(i) for i in x]
 
-#g1, = plt.plot(x, y1)
-#g2, = plt.plot(x, y2)
-#g3, = plt.plot(x, y3)
-#g4, = plt.plot(x, y4)
+g1, = plt.plot(x, y1)
+g2, = plt.plot(x, y2)
+g3, = plt.plot(x, y3)
+g4, = plt.plot(x, y4)
 
-#plt.legend([g1, g2, g3, g4], ['Li(x)', 'pi(x)', 'sigma(x)', 'x/log(x)'])
-#plt.title("Random Sets")
-#plt.xlabel('x')
+plt.legend([g1, g2, g3, g4], ['Li(x)', 'pi(x)', 'sigma(x)', 'x/log(x)'])
+plt.title("Random Sets")
+plt.xlabel('x')
 
-#plt.savefig('images/analytic_approach_sets.pdf')
-
-test2()
+plt.savefig('images/analytic_approach_sets.pdf')
