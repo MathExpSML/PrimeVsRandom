@@ -42,12 +42,20 @@ def sigma(x):
     for i in q:
         if i <= x:
             n += 1
+        else:
+            break
     return n
 
 
 def Pi(x):
     """Assume x is a real number, return the number of primes smaller than or equal to x."""
-    return len(list(primes(x)))
+    n = 0
+    for i in p:
+        if i <= x:
+            n += 1
+        else:
+            break
+    return n
 
 
 def Li(x):
@@ -60,28 +68,44 @@ def ali(x):
     return findroot(lambda y: li(y) - x, - 7).real
 
 def test1():
-    """Test whether sigma(x) ~ x/log(x). 
+    """Test whether sigma(x) ~ x/log(x).
     Return a list which contains sigma(x) such that bound-9 <= x <= bound."""
     values = []
     for i in range(-9, 1, 1):
         values.append(sigma(bound+i)/((bound+i)/log(bound+i)))
     return values
 
-def f(x):
-    return sigma(x)/(x/log(x))
 
-bound = 10**4
+bound = 10**5
 q = list(Q(bound))
+p = list(primes(bound))
 
-x = [i for i in range(100, 10**4+1, 100)]
-y = [f(i) for i in x]
-size = 100*[1]
+# The following code ...
+#x = [i for i in range(1000, 10**5+1, 1000)]
+#y1 = [Li(i) for i in x]
+#y2 = [Pi(i) for i in x]
+#y3 = [sigma(i) for i in x]
+#y4 = [i/log(i) for i in x]
 
-plt.scatter(x, y, s=size)
+#g1, = plt.plot(x, y1)
+#g2, = plt.plot(x, y2)
+#g3, = plt.plot(x, y3)
+#g4, = plt.plot(x, y4)
 
-plt.title("sigma(x)/(x/log(x))")
+#plt.legend([g1, g2, g3, g4], ['Li(x)', 'pi(x)', 'sigma(x)', 'x/log(x)'])
+#plt.title("Random Sets")
+#plt.xlabel('x')
+#plt.ylabel('y')
+
+#plt.savefig('images/analytic_approach_sets.pdf')
+
+x = [i for i in range(10, 10**5+1, 10)]
+y = [sigma(i)/(i/log(i)) for i in x]
+
+g, = plt.plot(x, y)
+plt.legend([g], ['sigma(x) / (x/(log(x))'])
+plt.title("sigma(x) ~ x/log(x)")
 plt.xlabel('x')
 plt.ylabel('y')
 
 plt.savefig('images/test1.pdf')
-
