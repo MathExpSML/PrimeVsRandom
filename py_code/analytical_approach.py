@@ -71,7 +71,7 @@ def ali(x):
 
 def test1():
     """Test whether sigma(x) ~ x/log(x) by plotting the graph of sigma(x) / (x/(log(x))."""
-    x = [i for i in range(100, 10**6+1, 100)]
+    x = [i for i in range(100, 10**5+1, 100)]
     y = [sigma(i)/(i/log(i)) for i in x]
     g, = plt.plot(x, y)
     plt.legend([g], ['sigma(x) / (x/(log(x))'])
@@ -81,7 +81,7 @@ def test1():
 
 def test2():
     """Test whether sigma(x) ~ Li(x) by plotting the graph of sigma(x) / Li(x)."""
-    x = [i for i in range(100, 10**6+1, 100)]
+    x = [i for i in range(100, 10**5+1, 100)]
     y = [sigma(i)/Li(i) for i in x]
     g, = plt.plot(x, y)
     plt.legend([g], ['sigma(x) / Li(x)'])
@@ -105,6 +105,6 @@ def graphe():
     plt.xlabel('x')
     plt.savefig('images/analytic_approach_sets.pdf')
 
-bound = 10**6
-q = Q(bound)
+bound = 10**5
+q = list(Q(bound))
 p = list(primes(bound))
