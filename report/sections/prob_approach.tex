@@ -3,6 +3,7 @@
 \begin{document}
     \label{sec:test1}
     
+\subsection{Approche probabiliste}
 Soient $E_n := \left\{ k \in N^* ~|~k \leq n \right\}$ l'ensemble des entiers inférieurs ou égaux à n, $ P_n := \{k \in E_n~|~ k$ est premier$ \}$ l'ensemble des nombres premiers inférieurs ou égaux à n, et la fonction $\pi (n) := \#P_n$, le nombres de premiers inferieurs ou égaux à n.
 
 On a vu que la fonction Li$(x) = \int_2^x \frac{dt}{\log t}$ 
@@ -18,7 +19,7 @@ S(\frac{1}{\log x})
 
 
 La fonction $\frac{1}{\log x}$ est une fonction continue, décroissante et positive sur l'interval $\left[2, \infty \right[$. 
-L'erreur entre Li$(n)$ et la somme de Riemann ci-dessus est donc bornée. 
+L'erreur entre Li$(n)$ et la fonction en escalier ci-dessus est donc bornée. 
  \[ 
 \left| S(\frac{1}{\log x}) - Li(n) \right|
 \leq \left| \sum_{k=2}^n \frac{1}{\log (k+1)} - \frac{1}{\log k} \right| 
@@ -49,23 +50,31 @@ Il est à noter deux cas particuliers:
 \end{itemize}
 
 
-Nous allons aussi introduire la fonction $\rho_k(n) := \# R_{k_n}$. Cette fonction mesure la taille de l'ensemble aléatoire.\newline
-$\rho_k(n)$ est donc une valeur aléatoire strictement inférieure à $n$ dont l'espérance est donnée par la formule suivante:
+Nous allons aussi introduire la fonction $\sigma_k(n) := \# R_{k_n}$. Cette fonction mesure la taille de l'ensemble aléatoire.\newline
+$\sigma_k(n)$ est donc une valeur aléatoire strictement inférieure à $n$ dont l'espérance est donnée par la formule suivante:
 \begin{equation}
 \label{eq:esperance}
-E[\rho_k(n)] = 0 + 1 + \frac{1}{\log 3} + ... + \frac{1}{\log n}
+E[\sigma_k(n)] = 0 + 1 + \frac{1}{\log 3} + ... + \frac{1}{\log n}
 = 1 + \sum_{k=3}^{n} \frac{1}{\log k}
 \end{equation}
 
-On observe alors que l'erreur entre l'espérance de $\rho_k(n)$ et la somme de Riemann (\ref{eq:SommeDeRiemann}) est constante, égale à
+On observe alors que l'erreur entre l'espérance de $\sigma_k(n)$ et la somme de Riemann (\ref{eq:SommeDeRiemann}) est constante, égale à
 $\frac{1}{\log 2}- 1 < 1$.
 
-Les ensembles aléatoires générés de cette manière suivront donc une distribution similaire a Li$(x)$, et donc à $\pi(x)$.
+Les ensembles aléatoires générés de cette manière suivront donc une distribution similaire a Li$(x)$, et donc à $\pi(x)$
+(voir figures \ref{fig:comparison_sigma_prob} et \ref{fig:prob_sample}).
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{comparison_sigma_prob}
+
+\caption{Graphes des fonctions $\pi$, Li and $\sigma$. On observe que Li et $\sigma$ sont superposées.}
 \label{fig:comparison_sigma_prob}
-\caption{Graphes des fonctions $\pi$, Li and $\rho$. On observe que $\pi$ et $\rho$ sont superposées.}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{prob_sample1}
+	\caption{graphes des fonctions $\sigma_k (1 \leq k \leq 25)$ et $\pi$}
+	\label{fig:prob_sample}
 \end{figure}
 
 \clearpage
