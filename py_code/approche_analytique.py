@@ -106,11 +106,7 @@ def graphe():
     plt.savefig('images/analytic_approach_sets.pdf')
 
 
-values = {}
-for j in range(1000):
-    bound = 10**3
-    q = Q(bound)
-#p = list(primes(bound))
-    x = sigma(bound)
-    values[str(x)] = values.get(str(x), 0) + 1 
-print(values)
+
+bound = 10**5
+q = list(Q(bound))
+p = list(primes(bound))
