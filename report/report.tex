@@ -1,0 +1,57 @@
+\documentclass{article}
+    \usepackage[french]{babel}      %import lang norms
+    \usepackage[T1]{fontenc}        %import encoding
+    \usepackage{a4wide}
+    \usepackage{nameref}            %Allows cross-ref to section name
+    \usepackage{hyperref}           %Makes table of content clickable
+    \usepackage{imakeidx}            % Allows index
+    \usepackage{subfiles}           % Allows division into multiple pages
+    \makeindex[columns=3]           % Create index
+    \usepackage[totoc]{idxlayout}   % Add index to table of content
+    \usepackage{graphicx}
+    \graphicspath{ {../images/} }
+    \usepackage{float}
+    \usepackage{amssymb}
+    \usepackage{amsthm}
+    
+\begin{document}
+
+
+
+%Premiere page
+\author{Sebastien Plaasch \\ Maxime Rubio  \\ Lucas Villiere}
+\title{Prime vs Random Sets}
+\maketitle
+\newpage 
+\begin{abstract}
+    Resume de notre projet..
+\end{abstract}
+\newpage
+\tableofcontents
+
+%\vspace{\fill} %Summary at the end of page?
+
+\newpage
+
+%Introductionz
+\section*{Introduction}
+    \label{sec:intro}
+    \addcontentsline{toc}{section}{\nameref{sec:intro}}
+\subfile{sections/introduction}
+
+\section{Creation d'ensembles aléatoires suivant la distribution de $\pi(x)$}
+    \subfile{sections/analytic_approach}
+    \subfile{sections/prob_approach}
+    
+
+\section{Ensembles aleatoires et conjonctures}
+    \subfile{sections/Chap2}
+
+\section*{Conclusion}
+    \subfile{sections/conclusion}
+
+%Index - le laisser a la fin
+\newpage
+\printindex
+
+\end{document}
