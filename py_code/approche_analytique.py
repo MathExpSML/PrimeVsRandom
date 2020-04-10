@@ -4,7 +4,7 @@ from mpmath import li, findroot
 from random import choice
 
 
-def primes(N):
+def gen_primes(N):
     """Assume n is an integer, generate prime numbers up to N."""
     prime = set()
     for n in range(2, N + 1, 1):
@@ -35,27 +35,51 @@ def Q(N):
         else:
             break
 
+def get_set(N, file_name):
+    """Renvoit, sous forme de liste, l'ensemble aléatoire file_name, jusqu'à N."""
+    ensemble = []
+    of = open(file_name, 'r')
+    line = of.readline()
+    while line:
+        nombre = int(line[:-1])
+        if nombre <= N:
+            ensemble.append(nombre)
+        else:
+            break
+        line = of.readline()
+    return ensemble
 
 def sigma(x):
-    """Assume x is a real number, return the number of elements in q smaller than x."""
-    n = 0
-    for i in q:
-        if i <= x:
-            n += 1
-        else:
-            break
-    return n
-
+    a, b = 0, len(q) - 1
+    if q[b] <= x:
+        return b+1
+    while b-a > 1:
+        m = (a+b) // 2
+        if q[m] == x:
+            return m+1
+        if q[a] <= x <= q[m]:
+            b = m
+        elif q[m] <= x <= q[b]:
+            a = m
+    else:
+        return a+1
 
 def Pi(x):
-    """Assume x is a real number, return the number of primes smaller than or equal to x."""
-    n = 0
-    for i in p:
-        if i <= x:
-            n += 1
-        else:
-            break
-    return n
+    """Alternative à Pi(x)."""
+    a, b = 0, len(p) - 1
+    if p[b] <= x:
+        return b+1
+    while b-a > 1:
+        m = (a+b) // 2
+        if p[m] == x:
+            return m+1
+        if p[a] <= x <= p[m]:
+            b = m
+        elif p[m] <= x <= p[b]:
+            a = m
+    else:
+        return a+1
+
 
 
 def Li(x):
@@ -105,8 +129,3 @@ def graphe():
     plt.xlabel('x')
     plt.savefig('images/analytic_approach_sets.pdf')
 
-
-
-bound = 10**5
-q = list(Q(bound))
-p = list(primes(bound))
