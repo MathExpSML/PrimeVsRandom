@@ -21,7 +21,7 @@ def unwrap_set(csv):
 ################## TEST CODE ##################
 
 if __name__ == "__main__":
-    S = unwrap_set("samples.csv") # create 
+    S = unwrap_set("data/samples.csv") # create 
     print(len(S))
     # print(samples[1])
     sample1 = S[1]

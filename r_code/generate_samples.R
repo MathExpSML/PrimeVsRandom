@@ -21,4 +21,6 @@ rsamp <- function(){
 # generates a list of samples
 rand_sets <- replicate(100,rsamp())
 
-write.csv(df,"samples.csv")
+write.csv(df,file.path("data",paste("prob_samples-",Sys.Date(),".csv",sep="")),row.names = F)
+
+          
