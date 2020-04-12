@@ -11,6 +11,7 @@ def gen_primes(N):
         if all(n % p > 0 for p in prime):
             prime.add(n)
             yield n
+            
 
 def g(n):
     """Part of code often used in other functions."""
@@ -35,6 +36,7 @@ def Q(N):
         else:
             break
 
+
 def get_set(N, file_name):
     """Renvoit, sous forme de liste, l'ensemble aléatoire file_name, jusqu'à N."""
     ensemble = []
@@ -48,6 +50,7 @@ def get_set(N, file_name):
             break
         line = of.readline()
     return ensemble
+
 
 def sigma(x):
     a, b = 0, len(q) - 1
@@ -64,6 +67,7 @@ def sigma(x):
     else:
         return a+1
 
+
 def Pi(x):
     """Alternative à Pi(x)."""
     a, b = 0, len(p) - 1
@@ -79,7 +83,6 @@ def Pi(x):
             a = m
     else:
         return a+1
-
 
 
 def Li(x):
@@ -129,3 +132,12 @@ def graphe():
     plt.xlabel('x')
     plt.savefig('images/analytic_approach_sets.pdf')
 
+def ecarts():
+    """Plot the graph of Pi(x)/sigma(x)."""
+    x = [i for i in range(10**4, (10**7)+1, 10**4)]
+    y = [Pi(i)/sigma(i) for i in x]
+    g, = plt.plot(x, y)
+    plt.legend([g], "pi(x)/sigma(x)")
+    plt.title("pi(x) ~ sigma(x)")
+    plt.xlabel('x')
+    plt.savefig('images/ecarts.pdf')
