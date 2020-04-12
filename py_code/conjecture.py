@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from math import log, fabs, sqrt, pi, ceil, floor
 from mpmath import li, findroot
-from random import choice
+from random import choice, uniform
 
 
 def primes(N):
@@ -67,46 +67,48 @@ def ali(x):
     """Return ali(x) such that li(ali(x)) = x."""
     return findroot(lambda y: li(y) - x, - 7).real
 
-################################################################################
+def V(N):
+    """"Créé un ensemble aléatoire en utilisant l'approche probabiliste."""
+    randomSet = []
+    for i in range(2,N+1):
+        if uniform(0,1) <= 1/log(i):
+            randomSet.append(i)
+    return randomSet
 
-def test1():
-    """Test whether sigma(x) ~ x/log(x) by plotting the graph of sigma(x) / (x/(log(x))."""
-    x = [i for i in range(100, 10**5+1, 100)]
-    y = [sigma(i)/(i/log(i)) for i in x]
-    g, = plt.plot(x, y)
-    plt.legend([g], ['sigma(x) / (x/(log(x))'])
-    plt.title("sigma(x) ~ x/log(x)")
-    plt.xlabel('x')
-    plt.savefig('images/test1.pdf')
+def rho(x):
+    """"Renvoit le nombre d'éléments inférieurs à x dans un ensemble V."""
+    return len(v)
 
-def test2():
-    """Test whether sigma(x) ~ Li(x) by plotting the graph of sigma(x) / Li(x)."""
-    x = [i for i in range(100, 10**5+1, 100)]
-    y = [sigma(i)/Li(i) for i in x]
-    g, = plt.plot(x, y)
-    plt.legend([g], ['sigma(x) / Li(x)'])
-    plt.title("sigma(x) ~ Li(x)")
-    plt.xlabel('x')
-    plt.savefig('images/test2.pdf')
+def count_twins(x, set):
+    """Fonction qui compte le nombre de nombres jumeaux inférieurs à x dans set."""
+    k = 0
+    for i in range(len(set)-1):
+        if set[i+1] < x:
+            if set[i]+2 == set[i+1]:
+                k += 1
+        else:
+            break
+    return k
 
-def graphe():
-    """Plot the graph of Li(x), Pi(x), sigma(x), x/log(x)."""
-    x = [i for i in range(100, (10**5)+1, 100)]
-    y1 = [Li(i) for i in x]
-    y2 = [Pi(i) for i in x]
-    y3 = [sigma(i) for i in x]
-    y4 = [i/log(i) for i in x]
+def twin_primes():
+    """Fonction qui renvoit un graphe de fonctions qui comptent le nombre
+    de nombres jumeaux inférieur à x."""
+    x = [i for i in range(10, (10**3)+1, 10)]
+    y1 = [count_twins(i, p) for i in x]
+    y2 = [count_twins(i, q) for i in x]
+    y3 = [count_twins(i, v) for i in x]
     g1, = plt.plot(x, y1)
     g2, = plt.plot(x, y2)
     g3, = plt.plot(x, y3)
-    g4, = plt.plot(x, y4)
-    plt.legend([g1, g2, g3, g4], ['Li(x)', 'pi(x)', 'sigma(x)', 'x/log(x)'])
-    plt.title("Random Sets")
+    plt.legend([g1, g2, g3], ['twins in primes', 'twins in Q', 'twins in V'])
+    plt.title("Twins")
     plt.xlabel('x')
-    plt.savefig('images/analytic_approach_sets.pdf')
+    plt.savefig('images/twins.pdf')
+    
 
-
-
-bound = 10**5
-q = list(Q(bound))
+bound = 10**3
 p = list(primes(bound))
+q = list(Q(bound))
+v = V(bound)
+
+twin_primes()

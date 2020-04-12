@@ -30,7 +30,7 @@ Pour $ n > 11 $, voici la méthode de sélection  de l'élément $q_{n} \in Q$:
 	(où $\lfloor x \rfloor$ désigne la partie entière inférieure de $x$);
 	\item $ q_{n} $ est choisi aléatoirement entre a et b. 
 \end{itemize}
-En procédant de la sorte, le théorème \ref{theorem} sera toujours vrai pour un ensemble aléatoire $Q$.
+En procédant de la sorte, le théorème \ref{theorem} sera toujours vrai pour tout ensemble aléatoire $Q$.
 
 \subsubsection{Définition de la fonction $\sigma$}
 
@@ -50,11 +50,18 @@ La figure \ref{im:image1} devrait apparaitre ici.
 \subsubsection{Écart entre $\pi(x)$ et $\sigma(x)$}
 
 La fonction $\sigma$ semble suivre la même allure que $\pi(x)$. Cependant, lors de nos expérimentations, nous avons
-dessinés des graphes (que vous trouverez en annexe) pour des valeurs de $x$ inférieures à celles de la figure \ref{im:image1}. Pour des petites valeurs de $x$, la courbe de $\sigma$ était presque confondue avec celle de $\frac{x}{\log(x)}$. Lorsque les valeurs de $x$ sont de plus en plus grandes, $\sigma(x)$ tend vers $\pi(x)$. Pour analyser l'écart entre $\pi(x)$ et $\sigma(x)$, nous avons tracé le graphe de la fonction $\pi(x) - \sigma(x)$ : 
+dessinés des graphes (que vous trouverez en annexe) pour des valeurs de $x$ inférieures à celles de la figure \ref{im:image1}. Pour des petites valeurs de $x$, la courbe de $\sigma$ était presque confondue avec celle de $\frac{x}{\log(x)}$. Lorsque les valeurs de $x$ sont de plus en plus grandes, $\sigma(x)$ tend vers $\pi(x)$. Pour analyser l'écart entre $\pi(x)$ et $\sigma(x)$, nous avons tracé le graphe de la fonction $\frac{\pi(x)}{\sigma(x)}$ : 
 
 \hspace{1cm}
 
-FIGURE
+La figure \ref{im:image2} devrait apparaitre ici.
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width = \textwidth]{ecarts.pdf}}
+\caption{Graphe de $\frac{\pi(x)}{\sigma(x)}$ }
+	\label{im:image2}
+\end{figure}
+On peut en conclure que $ \pi(x) \sim \sigma(x) $.
+
 
 \subsubsection{Le Théorème des Nombres Premiers}
 
