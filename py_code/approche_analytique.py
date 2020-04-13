@@ -50,6 +50,14 @@ def get_set(N, file_name):
             break
         line = of.readline()
     return ensemble
+    
+
+def record_set(N, file_name):
+    """Enregistre un ensemble aléatoire, jusqu'à N, dans file_name."""
+    of = open(file_name, "w")
+    for number in Q(N):
+        of.write(str(number) + "\n")
+    of.close()
 
 
 def sigma(x):
