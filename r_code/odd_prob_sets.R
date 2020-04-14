@@ -1,12 +1,15 @@
-# import base
+# This script will generate multiple randoms sets following the distribution of pi(x).
+# With the exception of 2, all elements of the sets are odd integers, which is a property of prime numbers.
+
+# import base functions and 
 source("r_code/pack_func.R")
 library(stringr)
 
 # bound of the samples
-bound <- 10^5
+bound <- 10^7
 x <- c(2,seq(3,bound,2))
-p <- "data/odd_prob_sets/"
-dir.create(p)
+p <- "data/odd_prob_sets/" #Setup path to record sets
+dir.create(p) #Create directory accordingly to path
 
 # Sel generates a random variable between 0 and 1, returns true if variable <= 1/log(x), false otherwise
 Sel <- function(x) {runif(1) <= 2/log(x)}
