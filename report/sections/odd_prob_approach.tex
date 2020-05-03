@@ -1,0 +1,39 @@
+\documentclass[../main.tex]{report}
+	
+\begin{document}
+    \label{sec:odd_prob}
+\subsubsection{Ensembles probabilistes impairs}
+Bien que ces ensembles aléatoires suivent la distribution de $\pi(x)$, il manque une propriété importante des nombres premiers: à l'exception de $2$, tous les nombres premiers sont impairs.
+
+Nous allons alors modifier l'algorithme mentionné précedemment afin de générer des ensembles ayant cette propriété. 
+Soit $O_n := E_n \cap 2 \mathbb{N} +1$ l'ensemble des entiers impairs inférieurs ou égaux à $n$. 
+Soit alors l'ensemble aléatoire 
+$U_{k_n} \subset \{O_n \cup \{2\}\}$
+tel que $\forall~i \in \{O_n \cup \{2\}\}$,
+
+\[
+P(i \in U_{k_n}) = 
+\left\{ 
+    \begin{array}{cl}
+         0 & \mbox{si}~i = 1 \\
+         1 & \mbox{si}~ 2 \leq i < 9 \\
+         \frac{2}{\log n} & \mbox{si}~i \geq 9
+    \end{array}
+\right.
+\]
+
+On observe alors que ces suites débutent avec les mêmes éléments: $ (2,3,5,7,...) $, mais contienent des éléments aléatoires à partir du 5\up{e} terme. 
+Pour tout $n \geq 5$, la fonction $\sigma$ est une valeur aléatoire d'esperance: 
+\[
+E[\sigma(n)] = 
+4 + \sum_{i=5}^{\lfloor{n/2}\rfloor} \frac{2}{\log (2i-1)}
+\]
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{comparison_odd_prob}
+
+\caption{Graphes des fonctions $\pi$ et $\sigma$.}
+\label{fig:comparison_sigma_prob}
+\end{figure}
+
+\end{document}
