@@ -30,7 +30,7 @@ for (set in sets){
 #Plot everything and save it in images/
 ggplot() + 
   geom_line(data = plot_df, aes(n,c, color=label),alpha = .4) +
-  geom_line(data = pi_df, aes(x,primes_count), color = "red", linetype="dashed", show.legend = T) +
+  geom_line(data = pi_df, aes(x,primes_count), color = "black", linetype="dashed", show.legend = T) +
   labs(x=NULL, y=NULL) + guides(color="none", linetype="hello") +
   theme_minimal()
-ggsave("prob_sample_odd.pdf",width=6,height=4,path="images")
+ggsave("prob_sample_odd.pdf",width=14,height=6,unit="cm",path="images")

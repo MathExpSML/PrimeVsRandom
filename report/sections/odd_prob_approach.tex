@@ -9,7 +9,7 @@ Nous allons alors modifier l'algorithme mentionné précedemment afin de génér
 Soit $O_n := E_n \cap 2 \mathbb{N} +1$ l'ensemble des entiers impairs inférieurs ou égaux à $n$. 
 Soit alors l'ensemble aléatoire 
 $U_{k_n} \subset \{O_n \cup \{2\}\}$
-tel que $\forall~i \in \{O_n \cup \{2\}\}$,
+tel que $\forall~i \in \{O_n \cup \{2\}\}$, le probabililité que $i$ soit dans l'ensemble $U_{k_n}$ soit:
 
 \[
 P(i \in U_{k_n}) = 
@@ -22,6 +22,8 @@ P(i \in U_{k_n}) =
 \right.
 \]
 
+Le fait que $P(i \in U_{k_n}) = 1$ pour les entiers impairs inferieurs à 9 découle du au fait que $2/\log(n) > 1$ pour ces entiers.
+
 On observe alors que ces suites débutent avec les mêmes éléments: $ (2,3,5,7,...) $, mais contienent des éléments aléatoires à partir du 5\up{e} terme. 
 Pour tout $n \geq 5$, la fonction $\sigma$ est une valeur aléatoire d'esperance: 
 \[
@@ -29,11 +31,24 @@ E[\sigma(n)] =
 4 + \sum_{i=5}^{\lfloor{n/2}\rfloor} \frac{2}{\log (2i-1)}
 \]
 
-\begin{figure}[H]
-\includegraphics[width=\textwidth]{comparison_odd_prob}
+En réécrivant l'equation \ref{eq:SommeDeRiemann} de la page \pageref{eq:SommeDeRiemann} en une somme de Riemann de pas constant = 2, on obtient que:
+\[
+S(\frac{1}{\log(x)}) = \sum_{k=0}^{n}\frac{2}{\log 2+k}
+\]
 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=6cm]{comparison_odd_prob}
 \caption{Graphes des fonctions $\pi$ et $\sigma$.}
 \label{fig:comparison_sigma_prob}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{prob_sample_odd}
+	\caption{graphes des fonctions $\sigma_k$ pour $k \leq 25$ (25 premiers ensembles impairs) et $\pi$}
+	\label{fig:prob_sample_odd}
 \end{figure}
 
 \end{document}

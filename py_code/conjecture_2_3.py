@@ -21,7 +21,7 @@ def conjecture(n, set):
 
 def tryForSet(set, bound, setname):
     """
-    Try conjecture for a given set up to a certain bound. \n 
+    Try conjecture for a given set up to a certain bound. \n
     setname is a string which will be used for the output report. \n
     Output is a dataframe with setname, number of successes and failures, maximum element for which conjecture was not verified and success rate for the set
     """
@@ -68,7 +68,11 @@ def record_output(folder,bound,output):
         df.to_csv('./data/' + output + ".csv")
 
 # record_output('./data/odd_prob_sets/',10000,'conjecture_2_3_odd_10k')
-record_output('./data/prob_sets/',10000,'conjecture_2_3_10k')
+# record_output('./data/prob_sets/',10000,'conjecture_2_3_10k')
+# record_output('./data/odd_analytic_sets/',10000,'conjecture_2_3_odd_analytique_10k')
+# record_output('./data/analytic_sets/',10000,'conjecture_2_3_analytique_10k')
+record_output('./data/rand_samp/',10000,'rand_samp')
+record_output('./data/rand_samp_odd/',10000,'rand_samp_odd')
 
 # for f in files:
 #     s = {int(line.strip()) for line in open('./data/odd_prob_sets/' + f)}
