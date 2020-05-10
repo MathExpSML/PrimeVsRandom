@@ -16,11 +16,11 @@ def twin_primes(N):
     """Fonction qui renvoit un graphe de fonctions qui comptent le nombre
     de nombres jumeaux inférieur à x."""
     x = [i for i in range(10, N+1, 10)]
-    path_q_odd = "/Users/maximerubio/Documents/uni/S2/EML/PrimeVsRandom/data/odd_analytic_sets/analytique_odd_set"
-    path_q = "/Users/maximerubio/Documents/uni/S2/EML/PrimeVsRandom/data/analytic_sets/analytique_set_"
-    path_v_odd = "/Users/maximerubio/Documents/uni/S2/EML/PrimeVsRandom/data/odd_prob_sets/odd_prob_set_"
-    path_v = "/Users/maximerubio/Documents/uni/S2/EML/PrimeVsRandom/data/prob_sets/prob_set_"
-    p = analytic.get_set(N, "/Users/maximerubio/Documents/uni/S2/EML/PrimeVsRandom/data/set_primes.txt")
+    path_q_odd = "~/analytique_odd_set"
+    path_q = "~/analytique_set_"
+    path_v_odd = "~/odd_prob_set_"
+    path_v = "~/prob_set_"
+    p = analytic.get_set(N, "~/set_primes.txt")
     y1 = [count_twins(i, p) for i in x]
     g1, = plt.plot(x, y1)
     for j in range(1, 6, 1):
