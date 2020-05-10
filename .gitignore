@@ -16,3 +16,9 @@ report/report.synctex(busy)
 .vscode/settings.json
 PrimeVsRandom.Rproj
 .vscode/settings.json
+*.aux
+*.bbl
+*.blg
+*.log
+*.json  
+rand_samp_*.txt

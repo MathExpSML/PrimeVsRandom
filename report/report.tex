@@ -1,6 +1,7 @@
 \documentclass{article}
     \usepackage[french]{babel}      %import lang norms
-    \usepackage[T1]{fontenc}        %import encoding
+		\usepackage[UTF8]{inputenc}
+    \usepackage[T1	]{fontenc}        %import encoding
     \usepackage{a4wide}
     \usepackage{nameref}            %Allows cross-ref to section name
     \usepackage{hyperref}           %Makes table of content clickable
@@ -13,6 +14,8 @@
     \usepackage{float}
     \usepackage{amssymb}
     \usepackage{amsthm}
+		\setlength{\parindent}{0pt}			% Remove alinea
+		\usepackage{subfigure} 	%allows multiple figures side by side
     
 \begin{document}
 
@@ -45,10 +48,11 @@
     \subfile{sections/odd_prob_approach}
 
 \section{Ensembles aleatoires et conjonctures}
-    \subfile{sections/Chap2}
-
+    %\subfile{sections/Chap2}
+		\subfile{sections/Conjecture_2_3}
+		
 \section*{Conclusion}
-    \subfile{sections/conclusion}
+    %\subfile{sections/conclusion}
 
 %Index - le laisser a la fin
 \newpage
