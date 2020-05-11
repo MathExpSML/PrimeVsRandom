@@ -1,4 +1,4 @@
-hm <- read.csv("./data/failure_mapping_10K_V2.csv")
+hm <- read.csv("./data/conjecture_2_3/failure_mapping_10K_V2.csv")
 hm <- hm %>% mutate(
   label = ifelse(grepl("analytique",set),"analytique","probabiliste"),
   odd = grepl("odd",set)

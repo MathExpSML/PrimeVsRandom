@@ -36,13 +36,23 @@
 	\item De manière générale, toutes les courbes sont croissantes, ce qui indiquerait, autant pour les nombres premiers que pour les ensembles aléatoires, que le nombre de jumeaux tend vers l'infini. 
 	\end{itemize}
 	
-	De plus, ce graphe éveille une idée intéressante. Si on désigne par $f$ la fonction qui compte le nombre de jumeaux dans l'ensemble des nombres premiers et par $g$ celle qui compte les jumeaux dans un ensemble aléatoire et qu'on parvient à montrer que $f$ et $g$ sont semblables (sous-entendu qu'elles le sont), alors $\lim\limits_{x \rightarrow \infty} g(x) = \infty \Rightarrow \lim\limits_{x \rightarrow \infty} f(x) = \infty $. Ce qui démontrerait la conjecture des nombres premiers jumeaux. Pour ce faire une idée d'une éventuelle équivalence entre $f$ et $g$, voici le graphe (figure \ref{im:image6}) de $\frac{f(x)}{g(x)}$, où $g$ est appliquée à un ensemble impair $Q$ choisi arbitrairement. 
-	
+	Par ailleurs, ce graphe éveille une idée intéressante. Si on désigne par $f$ la fonction qui compte le nombre de jumeaux dans l'ensemble des nombres premiers et par $g$ celle qui compte les jumeaux dans un ensemble aléatoire et qu'on parvient à montrer que $f$ et $g$ sont semblables (sous-entendu qu'elles le sont), alors $\lim\limits_{x \rightarrow \infty} g(x) = \infty \Rightarrow \lim\limits_{x \rightarrow \infty} f(x) = \infty $. Ce qui démontrerait la conjecture des nombres premiers jumeaux. Pour ce faire une idée d'une éventuelle équivalence entre $f$ et $g$, voici le graphe (figure \ref{im:image6}) de $\frac{f(x)}{g(x)}$, où $g$ est appliquée à un ensemble impair $Q$ choisi arbitrairement. 	
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width = \textwidth]{ecarts_count_twins.pdf}}
 \caption{$\frac{f(x)}{g(x)}$}
 	\label{im:image6}
 \end{figure}
+
+	Pour les ensembles aléatoires $R$ (créés par l'approche probabiliste), on peut avoir une bonne approximation de la fonction $g$, qui compte le nombre de jumeaux. Soit $R$ un tel ensemble, on définit $ g : [0, \infty[ \rightarrow \mathbb{R}, x \mapsto \sum_{i = 2}^{\lfloor x \rfloor}  \frac{1}{\log(i) \log(i+2)}$. "Elle donne une bonne approximation car c'est l'espérance mathématique." À titre comparatif, voici le graphe de $g(x)$ (figure \ref{im:image7}), d'une fonction qui compte les jumeaux dans l'ensemble des nombres premiers et une qui les compte dans $R$.
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width = \textwidth]{comparaison_twins.pdf}}
+\caption{Comparaison de $g(x)$}
+	\label{im:image7}
+\end{figure}
+
+On peut montrer que $\lim\limits_{x \rightarrow \infty} g(x) = + \infty$. Donc $f \geqslant g \Rightarrow \lim\limits_{x \rightarrow \infty} f(x) = + \infty$.
+
+Pour conclure, la répartition des nombres premiers nous a permis de créer des ensembles aléatoires qui ont une infinité de nombres jumeaux. 
 
 \clearpage
 \end{document}
