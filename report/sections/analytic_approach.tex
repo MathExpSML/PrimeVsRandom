@@ -7,8 +7,7 @@
 
 \subsection{Approche analytique}
 
-Cette approche pour créer des ensembles aléatoires (désignés par $Q$) qui partagent la même distribution que celle des nombres
-premiers, est basée sur un théorème (théorème \ref{theorem}) issu de ... . 
+Notre première approche pour créer des ensembles aléatoires (désignés par $Q$) qui partagent la même distribution que celle des nombres premiers, est basée sur un théorème (théorème \ref{theorem}) issu de ... . 
 
 \begin{Thm}
 \label{theorem}
@@ -33,43 +32,37 @@ Pour $ n > 11 $, voici la méthode de sélection  de l'élément $q_{n} \in Q$:
 
 En procédant de la sorte, le théorème \ref{theorem} sera toujours vrai pour tout ensemble aléatoire $Q$.
 
-Par cette méthode, nous avons créé 200 ensembles, jusqu'à $10^{7}$, dont pour 100 d'entre-eux on a imposé la condition suivante : $\forall \, q_{n} \in Q$ tel que  $n > 11 : q_{n}$ est impair.
+Par cette méthode, nous avons créé 200 ensembles de nombres inférieurs à $10^{7}$, dont pour 100 d'entre-eux on a imposé la condition suivante : $\forall \, q_{n} \in Q$ tel que  $n > 11 : q_{n}$ est impair. Nous testerons nos conjectures sur ces ensembles.
 
-\subsubsection{Définition de la fonction $\sigma$}
+\subsubsection{Définition de la fonction $\sigma_{q}$}
 
-On peut désormais définir $ \sigma : [0, \infty [$  $\rightarrow \mathbb{R} $, $ x \mapsto \# \left\{ n \in Q : n < x \right\} $. Nous parlerons systématiquement de  la fonction $\sigma$ alors que cette fonction n'est bien entendu pas unique, elle dépend à chaque fois de l'ensemble aléatoire $Q$ sur lequel on travail. Cependant, nous avons pu remarquer que  les différentes fonctions $\sigma$ sont souvent très proches les unes des autres. À titre d'exemple,  pour un grand nombre d'ensembles aléatoires $Q$, nous avons calculé $\sigma(1000)$. Pour $45 \%$ des ensembles, $\sigma(1000) = 148$ et parmi $42\%$ d'entre eux, $\sigma(1000) = 147$.
+On peut désormais définir $ \sigma_{q} : [0, \infty [$  $\rightarrow \mathbb{R} $, $ x \mapsto \# \left\{ n \in Q : n < x \right\} $. Nous parlerons systématiquement de  la fonction $\sigma_{q}$ alors que cette fonction n'est bien entendu pas unique, elle dépend à chaque fois de l'ensemble aléatoire $Q$ sur lequel on travail. Cependant, grâce à la construction des ensembles $Q$, nous pouvons supposer que toutes les fonctions $\sigma_{q}$ sont semblables, comme l'illustre le graphe *** en annexe. 
+%nous avons pu remarquer que  les différentes fonctions $\sigma$ sont souvent très proches les unes des autres. À titre d'exemple,  pour un grand nombre d'ensembles aléatoires $Q$, nous avons calculé $\sigma(1000)$. Pour $45 \%$ des ensembles, $\sigma(1000) = 148$ et parmi $42\%$ d'entre eux, $\sigma(1000) = 147$.
 
-Afin de visualiser  $\sigma(x)$ en la comparant à $\pi(x)$ et $\frac{x}{\log(x)}$, voici leur graphe respectif : 
+Afin de visualiser  $\sigma_{q}(x)$ en la comparant à $\pi(x)$ et $\frac{x}{\log(x)}$, voici leur graphe respectif : 
 
-\hspace{1cm}
-
-La figure \ref{im:image1} devrait apparaitre ici.
-\begin{figure}[htbp]
-	\centerline{\includegraphics[width = \textwidth]{approche_analytique_sets.pdf}}
-\caption{Graphes de $\sigma(x)$, $\pi(x)$ et $\frac{x}{\log(x)}$ }
-	\label{im:image1}
+\begin{figure}[H]
+\centering
+\includegraphics[keepaspectratio=true, width=13cm]{approche_analytique_sets.pdf}
+\caption{Graphe de $\sigma_{q}(x)$, $\pi(x)$ et $\frac{x}{\log(x)}$ }
+\label{im:image1}
 \end{figure}
 
-\subsubsection{Écart entre $\pi(x)$ et $\sigma(x)$}
+\subsubsection{Écart entre $\pi(x)$ et $\sigma_{q}(x)$}
 
-La fonction $\sigma$ semble suivre la même allure que $\pi(x)$. Cependant, lors de nos expérimentations, nous avons
-dessinés des graphes (que vous trouverez en annexe) pour des valeurs de $x$ inférieures à celles de la figure \ref{im:image1}. Pour des petites valeurs de $x$, la courbe de $\sigma$ était presque confondue avec celle de $\frac{x}{\log(x)}$. Lorsque les valeurs de $x$ sont de plus en plus grandes, $\sigma(x)$ tend vers $\pi(x)$. Pour analyser l'écart entre $\pi(x)$ et $\sigma(x)$, nous avons tracé le graphe de la fonction $\frac{\pi(x)}{\sigma(x)}$ : 
+La fonction $\sigma_{q}$ semble suivre la même allure que $\pi(x)$. Cependant, lors de nos expérimentations, nous avons dessinés des graphes (que vous trouverez en annexe) pour des valeurs de $x$ inférieures à celles de la figure \ref{im:image1}. Pour des petites valeurs de $x$, la courbe de $\sigma_{q}(x)$ était presque confondue avec celle de $\frac{x}{\log(x)}$. Lorsque les valeurs de $x$ sont de plus en plus grandes, $\sigma_{q}(x)$ tend vers $\pi(x)$. Pour analyser l'écart entre $\pi(x)$ et $\sigma_{q}(x)$, nous avons tracé le graphe de la fonction $\frac{\pi(x)}{\sigma_{q}(x)}$ : 
 
-\hspace{1cm}
-
-La figure \ref{im:image2} devrait apparaitre ici.
-\begin{figure}[htbp]
-	\centerline{\includegraphics[width = \textwidth]{ecarts.pdf}}
-\caption{Graphe de $\frac{\pi(x)}{\sigma(x)}$ }
-	\label{im:image2}
+\begin{figure}[H]
+\centering
+\includegraphics[keepaspectratio=true, width=13cm]{ecarts.pdf}
+\caption{Graphe de $\frac{\pi(x)}{\sigma_{q}(x)}$ }
+\label{im:image2}
 \end{figure}
-On peut en conclure que $ \pi(x) \sim \sigma(x) $.
-
 
 \subsubsection{Le Théorème des Nombres Premiers}
 
 L'objectif de cette section est de prouver la fidélité de nos ensembles aléatoires $Q$ à la répartition des nombres premiers.
-Pour ce faire, nous allons vérifier si le Théorème des Nombres Premiers, cité ci-après, est vrai quand on remplace $\pi(x)$ par $\sigma(x)$. 
+Pour ce faire, nous allons vérifier si le Théorème des Nombres Premiers, cité ci-après, est vrai quand on remplace $\pi(x)$ par $\sigma_{q}(x)$. 
 
 \begin{Thm}[Théorème des Nombres Premiers]
 \label{TNP}
@@ -77,12 +70,15 @@ Pour ce faire, nous allons vérifier si le Théorème des Nombres Premiers, cit�
 	\[ \pi(x) \sim \frac{x}{\log(x)}  \]
 \end{Thm}
 
-Pour démontrer le Théorème des Nombres Premiers, il a été démontré que, quand $x$ tend vers l'infini, $ Li(x) \sim \frac{x}{\log(x)} $. Nous pouvons montrer, graphiquement, que lorsque $x$ tend vers l'infini, $ \sigma(x) \sim Li(x) $ (voir figure \ref{im:image3}), ce qui implique que $ \sigma(x) \sim \frac{x}{\log(x)} $.
-\begin{figure}[htbp]
-	\centerline{\includegraphics[width = \textwidth]{test2.pdf}}
-\caption{Graphe de $\frac{\sigma(x)}{Li(x)}$ }
-	\label{im:image3}
+Pour démontrer le Théorème des Nombres Premiers, il a été démontré que, quand $x$ tend vers l'infini,  Li(x) $\sim \frac{x}{\log(x)} $. Nous pouvons montrer, graphiquement, que lorsque $x$ tend vers l'infini, $ \sigma_{q}(x) \sim $ Li(x) (voir figure \ref{im:image3}), ce qui implique que $ \sigma_{q}(x) \sim \frac{x}{\log(x)} $.
+
+\begin{figure}[H]
+\centering
+\includegraphics[keepaspectratio=true, width=13cm]{test2.pdf}
+\caption{Graphe de $\frac{\sigma_{q}(x)}{Li(x)}$}
+\label{im:image3}
 \end{figure}
+
 
 
 
