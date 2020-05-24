@@ -1,0 +1,23 @@
+\documentclass[../main.text]{report}
+\subsection{Code: Création d'ensembles aléatoires}
+
+\subsubsection{Création d'ensembles probabiliste}
+Le code suivant genere 100 ensembles aléatoires non-impairs. 
+\lstinputlisting[language=R]{../r_code/generate_samples.R}
+
+\clearpage
+\subsubsection{Création d'ensembles probabiliste impairs}
+Le code suivant est celui utilisé pour générer 100 ensembles aléatoires impairs.
+\lstinputlisting[language=R]{../r_code/generate_samples2.R}
+
+\clearpage
+\subsection{Seconde conjecture} 
+\subsubsection{Raport de conjecture}
+Le code suivant génere un tableau de donnée pour chaque ensemble, contenant le nombre d'entiers vérifiant la conjecture, le nombre d'echec et le plus grand entier ne vérifiant pas la conjecture.
+\lstinputlisting[language=Python]{../py_code/conjecture_2_3.py}
+
+\clearpage
+\subsubsection{Error mapping}
+\label{code:Error_mapping}
+Le code suivant est utilisé pour vérifier la conjecture pour un certain ensemble. Celui-ci ne génere pas de rapport mais s'arrête dès que l'assertion n'est pas vérifiée.
+\lstinputlisting[language=Python]{../py_code/test_conj_2_3.py}

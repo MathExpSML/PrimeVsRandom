@@ -12,7 +12,7 @@ premiers, est basée sur un théorème (théorème \ref{theorem}) issu de ... .
 
 \begin{Thm}
 \label{theorem}
-	L'hypothèse de Reimann est équivalente à l'assertion 
+	L'hypothèse de Riemann est équivalente à l'assertion 
 	\[
 	\forall \ n \geqslant 11, \ |p_{n} - ali(n) | < \frac{1}{\pi} \sqrt{n} \log^{5/2}(n) 
 	\]
@@ -30,7 +30,10 @@ Pour $ n > 11 $, voici la méthode de sélection  de l'élément $q_{n} \in Q$:
 	(où $\lfloor x \rfloor$ désigne la partie entière inférieure de $x$);
 	\item $ q_{n} $ est choisi aléatoirement entre a et b. 
 \end{itemize}
+
 En procédant de la sorte, le théorème \ref{theorem} sera toujours vrai pour tout ensemble aléatoire $Q$.
+
+Par cette méthode, nous avons créé 200 ensembles, jusqu'à $10^{7}$, dont pour 100 d'entre-eux on a imposé la condition suivante : $\forall \, q_{n} \in Q$ tel que  $n > 11 : q_{n}$ est impair.
 
 \subsubsection{Définition de la fonction $\sigma$}
 
