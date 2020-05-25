@@ -22,9 +22,9 @@ Soit $P(n)$ l'assertion "pour un certain $n \in \mathbb{N}$, Il existe $p \in R_
 En utilisant un algorithme \footnote{voir appendice: \ref{code:Error_mapping} - "py\_code/test\_conj\_2\_3.py" }, nous avons pu observer que, pour les nombres premiers, l'assertion est vraie pour tout $6 < n \leq 10^6$ .
 Le même algorithme confirme que la conjecture n'est pas vérifiée, du moins pour tout $n \geq 6$, en ce qui concerne les ensembles aléatoires. Cependant, il semble que certains de ces ensembles possèdent des propriétés similaires si l'on choisit un $n$ plus grand.
 
-Nous nous intéressons au nombre d'erreurs (c'est à dire le nombre d'entiers $n$ pour lesquelle l'assertion n'est pas vérifiée), ainsi que le plus grand entier pour lequel l'assertion est fausse. Cette dernière information est intéressante car si ce plus grand entier est petit, alors la conjoncture est vérifiée pour tout $n$ plus grand.
+Nous nous intéressons au nombre d'erreurs (c'est à dire le nombre d'entiers $n$ pour lesquels l'assertion n'est pas vérifiée), ainsi que le plus grand entier pour lequel l'assertion est fausse. Cette dernière information est intéressante car si ce plus grand entier est petit, alors la conjoncture est vérifiée pour tout $n$ plus grand.
 
-Le graphique \ref{fig:failures_2_3} ci-dessous représente en abscisses le nombre total d'erreur pour $n \in \{6,...,10^5\}$, et en ordonées le plus grand entier pour laquelle l'assertion est fausse. Chaque point représente un ensemble. Les ensembles ayant les meilleurs "performances" sont alors situés en bas à gauche: ceux-ci ont alors un faible nombre d'erreurs, et vérifie l'assertion pour tout $n$ plus grand. 
+Le graphique \ref{fig:failures_2_3} ci-dessous représente en abscisse le nombre total d'erreur pour $n \in \{6,...,10^5\}$, et en ordonné le plus grand entier pour laquelle l'assertion est fausse. Chaque point représente un ensemble. Les ensembles ayant les meilleurs "performances" sont alors situés en bas à gauche: ceux-ci ont alors un faible nombre d'erreurs, et vérifie l'assertion pour tout $n$ plus grand. 
 
 \begin{figure}[H]
 \centering
@@ -33,15 +33,15 @@ Le graphique \ref{fig:failures_2_3} ci-dessous représente en abscisses le nombr
 \label{fig:failures_2_3}
 \end{figure}
 
-Nous debuterons par remarquer que l'existence d'un entier $p$ répondant aux critères de la conjecture n'est pas rare. En effet, pour $ n \in \{6,...,10000\}$, l'assertion est vérifiée par près de 99\% des entiers $n$ testés pour chaque ensemble (moins de 650 erreurs). 
+Nous débuterons par remarquer que l'existence d'un entier $p$ répondant aux critères de la conjecture n'est pas rare. En effet, pour $ n \in \{6,...,10000\}$, l'assertion est vérifiée par près de 99\% des entiers $n$ testés pour chaque ensemble (moins de 650 erreurs). 
 
-Les ensembles non restreints aux nombres impairs génerent tout de même un nombre assez élevé d'erreurs: plus de 200 erreurs pour la quasi-totalité de ces ensembles.
+Les ensembles non restreints aux nombres impairs génèrent tout de même un nombre assez élevé d'erreurs: plus de 200 erreurs pour la quasi-totalité de ces ensembles.
 De plus, ces erreurs persistent assez tardivement: pour la majorité de ces ensembles, il existe (au moins) un entier $n > 5000$ pour lequel l'assertion est fausse. 
 
 
-Les ensembles composés de nombres impairs ont cependant de bien meilleurs performances . Ceux-ci ont un faible nombre d'erreurs (moins de 50 pour les ensembles générés par l'algorithme probabilistique, moins de 100 pour les ensembles générés par les algorithmes analytiques, voir figure \ref{fig:boxplots_Odd}). 
+Les ensembles composés de nombres impairs ont cependant de bien meilleurs performances . Ceux-ci ont un faible nombre d'erreurs (moins de 50 pour les ensembles générés par l'algorithme probabiliste, moins de 100 pour les ensembles générés par les algorithmes analytiques, voir figure \ref{fig:boxplots_Odd}). 
 De plus, le plus grand entier pour lequel l'assertion n'est pas vérifiée est relativement faible: cela signifie que pour tout entier $n > 1500$, l'assertion est vérifiée. Pour plus de trois quarts des ensembles aléatoires générés par l'algorithme probabiliste, on a même l'assertion vérifiée pour tout $n > 500$.
-Finalement, on remarque aussi que les ensembles crées par l'algorithme probabiliste ont des performances sensiblement meilleures. Cela est surement du au fait qu'ils possèdent sensiblement plus d'élements que les autre ensembles (voir figure \ref{fig:comparison_all_random_sets}), ou alors parce que leur distribution est plus proche de celles des nombres premiers.
+Finalement, on remarque aussi que les ensembles crées par l'algorithme probabiliste ont des performances sensiblement meilleures. Cela est surement du au fait qu'ils possèdent sensiblement plus d'éléments que les autre ensembles (voir figure \ref{fig:comparison_all_random_sets}), ou alors parce que leur distribution est plus proche de celles des nombres premiers.
 
 Les diagrammes à boites \ref{fig:boxplots} et \ref{fig:boxplots_Odd} ci-dessus offrent un aperçu de la distribution des erreurs. La seconde figure se concentre sur les ensembles impairs afin de faciliter la lecture du graphique.
 
@@ -70,19 +70,19 @@ Il existe trois ensembles vérifiant l'assertion pour tout $n, 100 \leq n \leq 1
 Pour ces ensembles, l'assertion tient, comme pour les nombres premiers, au moins jusqu'à $n=10^6$.  
 
 De plus, au delà de 100, il existe 50 ensembles ayant moins de 5 erreurs. 
-Il apparait alors que la probabilité d'une erreur diminue, et tend vers 0, lorsque n devient grand, comme le fait remarquer le graphique ci-dessous, représentant le nombre moyen d'erreurs sur un interval $[6+10n, 6+11n[$.
+Il apparait alors que la probabilité d'une erreur diminue, et tend vers 0, lorsque n devient grand, comme le fait remarquer le graphique ci-dessous, représentant le nombre moyen d'erreurs sur un intervalle $[6+10n, 6+11n[$.
 \begin{figure}[H]
 \centering
 \includegraphics{conjecture_2_3_10k_bin5_line}
-\caption{Diagramme représentant le nombre moyen d'erreur sur l'intervale $]6+10n, 6+11n], 6 \leq n < 10000$}
+\caption{Diagramme représentant le nombre moyen d'erreur sur l'intervalle $]6+10n, 6+11n], 6 \leq n < 10000$}
 \label{fig:conjecture_2_3_10k_bin5_line}
 \end{figure}
 
 On observe ici que pour les ensembles aléatoires impairs, le nombre moyen d'erreurs tend très rapidement vers 0 jusqu'à qu'aucune erreur n'apparaisse aux alentours de 1200. Cette même statistique diminue moins vite pour les autres ensemble, mais tend elle aussi vers 0.
-Il semble alors que pour un $n$ suffisement grand, la probabilité que l'assertion soit fausse diminue, voire devient négligeable pour les ensembles impairs. 
+Il semble alors que pour un $n$ suffisamment grand, la probabilité que l'assertion soit fausse diminue, voire devient négligeable pour les ensembles impairs. 
 
 \subsubsection{Conclusion de l'analyse}
-Certains ensembles aléatoires, notemment les ensembles impairs, semblent vérifier la conjecture pour $n$ plus grand que 6. Pour certain d'entre eux, il semble qu'il existe un entier $m \in \mathbb{N}$ à partir duquel , pour tout $n > m$, il existe toujours un élement $p < n$ dans l'ensemble tel que $p, 6n-p$ et $6n+p$ sont tous dans l'ensemble. Nous nous demandons alors si cette conjecture tient pour les nombres premiers les nombres premiers, comme pour certains ensembles aléatoires démontrant de bonnes "performances", qu'à cause d'une distribution "heureuse" au départ, lorsque $n$ est suffisement petit. Lorsque $n$ est suffisement grand, la probabilité d'une erreur est alors si faible qu'elle devient négligeable.  
+Certains ensembles aléatoires, notamment les ensembles impairs, semblent vérifier la conjecture pour $n$ plus grand que 6. Pour certain d'entre eux, il semble qu'il existe un entier $m \in \mathbb{N}$ à partir duquel , pour tout $n > m$, il existe toujours un élément $p < n$ dans l'ensemble tel que $p, 6n-p$ et $6n+p$ sont tous dans l'ensemble. Nous nous demandons alors si cette conjecture tient pour les nombres premiers les nombres premiers, comme pour certains ensembles aléatoires démontrant de bonnes "performances", qu'à cause d'une distribution "heureuse" au départ, lorsque $n$ est suffisamment petit. Lorsque $n$ est suffisamment grand, la probabilité d'une erreur est alors si faible qu'elle devient négligeable.  
 
 
 %\begin{figure}[h]
