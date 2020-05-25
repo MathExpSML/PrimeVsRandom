@@ -6,7 +6,7 @@ hm <- hm %>% mutate(
 # hm <- hm %>% group_by(label,odd) %>% mutate(set_cnt = n_distinct(set)) 
 # hm %>% group_by(group, label, odd) %>% select(!set) %>% ungroup
 
-b = 1
+b = 10
 plot_hm <- hm %>% 
   mutate(group = cut(hm$failedInt,breaks=seq(6,10000,b),labels=F)) %>% ungroup %>%
   group_by(group, label, odd) %>% mutate(cnt = n()) %>% ungroup %>% 
@@ -33,3 +33,5 @@ conj_line <- plot_hm %>% ggplot() +
   geom_line(aes(x=group*b, y=(cnt/set_cnt), color = label)) +
   facet_grid(odd ~ .) + theme_minimal() + ylab("nombre moyen d'erreur") + xlab("x") 
 ggsave("conjecture_2_3_10k_bin5_line.pdf",conj_line,width=12,height=6,units="cm",path="images")
+
+hm %>% filter(failedInt > 100) %>% group_by(set) %>% mutate(error_cnt = n()) %>% select(!failedInt) %>% group_by(error_cnt) %>% summarise(n_distinct(set))

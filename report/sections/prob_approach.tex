@@ -4,7 +4,7 @@
     \label{sec:test1}
     
 \subsection{Approche probabiliste}
-Soient $E_n := \left\{ k \in N^* ~|~k \leq n \right\}$ l'ensemble des entiers inférieurs ou égaux à n, $ P_n := \{k \in E_n~|~ k$ est premier$ \}$ l'ensemble des nombres premiers inférieurs ou égaux à n, et la fonction $\pi (n) := \#P_n$, le nombres de premiers inferieurs ou égaux à n.
+Soient $E_n := \left\{ k \in N^* ~|~k < n \right\}$ l'ensemble des entiers inférieurs à n, $ P_n := \{k \in E_n~|~ k$ est premier$ \}$ l'ensemble des nombres premiers inférieurs à n, et la fonction $\pi (n) := \#P_n$, le nombres de premiers inferieurs à n.
 
 On a vu que la fonction Li$(x) = \int_2^x \frac{dt}{\log t}$ 
 donne une bonne approximation de $\pi(n)$.
@@ -12,9 +12,9 @@ donne une bonne approximation de $\pi(n)$.
 Cette fonction peut être approximée par la somme de Riemann de pas contant $=1$:
 \begin{equation}
 \label{eq:SommeDeRiemann}
-S(\frac{1}{\log x})
-= \sum_{k=0}^n \frac{1}{\log(2 + k)}
-= \frac{1}{\log 2} + \sum_{k=3}^n \frac{1}{\log k}
+S \left({\frac{1}{\log x}} \right)
+= \sum_{k=0}^{n-1} \frac{1}{\log(2 + k)}
+= \frac{1}{\log 2} + \sum_{k=3}^{n-1} \frac{1}{\log k}
 \end{equation}
 
 
@@ -22,9 +22,9 @@ La fonction $\frac{1}{\log x}$ est une fonction continue, décroissante et posit
 L'erreur entre Li$(n)$ et la fonction en escalier ci-dessus est donc bornée. 
  \[ 
 \left| S(\frac{1}{\log x}) - Li(n) \right|
-\leq \left| \sum_{k=2}^n \frac{1}{\log (k+1)} - \frac{1}{\log k} \right| 
+\leq \left| \sum_{k=2}^{n-1} \frac{1}{\log k} - \frac{1}{\log (k+1)} \right| 
  %= \left| \frac{1}{\log (n+1)} - \frac{1}{\log 2} \right|
- = \frac{1}{\log (2)} - \frac{1}{\log (n+1)}
+ = \frac{1}{\log (2)} - \frac{1}{\log (n)}
  < \frac{1}{\log 2}
  < 2
  \]
@@ -32,9 +32,9 @@ L'erreur entre Li$(n)$ et la fonction en escalier ci-dessus est donc bornée.
 
 \subsubsection{Ensembles aléatoires} 
 
-Nous allons alors générer $k$ ensembles aléatoires $R_{k_n} \subset E_n$ de sorte que:
+Nous allons alors générer des ensembles aléatoires $R_{k} \subset \mathbb{N}, k \in \{1,...,100\}$ de sorte que:
 \[
-\forall~i \in E_n, P(i \in R_{k_n}) = 
+\forall~i \in \mathbb{N}, P(i \in R_{k}) = 
 \left\{ 
     \begin{array}{cl}
          0 & \mbox{si}~i = 1 \\
@@ -43,6 +43,8 @@ Nous allons alors générer $k$ ensembles aléatoires $R_{k_n} \subset E_n$ de s
     \end{array}
 \right.
 \]
+Ces ensembles seront construits jusqu'à $i = 10^7$.
+
 Il est à noter deux cas particuliers:
 \begin{itemize} 
     \item Le nombre 1 est exclu. En effet, $\frac{1}{\log 1}$ n'est pas défini. Par définition, $1$ n'est pas un nombre premier.
@@ -50,31 +52,32 @@ Il est à noter deux cas particuliers:
 \end{itemize}
 
 
-Nous allons aussi introduire la fonction $\sigma_k(n) := \# R_{k_n}$. Cette fonction mesure la taille de l'ensemble aléatoire.\newline
-$\sigma_k(n)$ est donc une valeur aléatoire strictement inférieure à $n$ dont l'espérance est donnée par la formule suivante:
+La fonction $\sigma_{R_k}(n) := \# \{i \in R_{k} | i < n\}$ mesure donc la taille des ensembles jusqu'à un certain $n$. 
+Cette fonction est donc une variable aléatoire strictement inférieure à $n$ dont l'espérance est donnée par la formule suivante:
 \begin{equation}
 \label{eq:esperance}
-E[\sigma_k(n)] = 0 + 1 + \frac{1}{\log 3} + ... + \frac{1}{\log n}
-= 1 + \sum_{k=3}^{n} \frac{1}{\log k}
+E[\sigma_{R_k}(n)] = 0 + 1 + \frac{1}{\log 3} + ... + \frac{1}{\log (n-1)}
+= 1 + \sum_{k=3}^{n-1} \frac{1}{\log k}
 \end{equation}
 
-On observe alors que l'erreur entre l'espérance de $\sigma_k(n)$ et la somme de Riemann (\ref{eq:SommeDeRiemann}) est constante, égale à
+Notons $\sigma_R$ (sans indicer $R$) l'ésperance de cette fonction.
+On observe alors que l'erreur entre $\sigma_R(n)$ et la somme de Riemann (\ref{eq:SommeDeRiemann}) est constante, égale à
 $\frac{1}{\log 2}- 1 < 1$.
 
-Les ensembles aléatoires générés de cette manière suivront donc une distribution similaire a Li$(x)$, et donc à $\pi(x)$
+Les ensembles aléatoires générés de cette manière suivront donc une distribution similaire à Li$(x)$, et donc à $\pi(x)$
 (voir figures \ref{fig:comparison_sigma_prob} et \ref{fig:prob_sample}).
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{comparison_sigma_prob}
 
-\caption{Graphes des fonctions $\pi$, Li and $\sigma$. On observe que Li et $\sigma$ sont superposées.}
+\caption{Graphes des fonctions $\pi$, Li and $\sigma$. Li et $\sigma$ sont superposées.}
 \label{fig:comparison_sigma_prob}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{prob_samples}
-	\caption{graphes des fonctions $\sigma_k$ pour $k \leq 25$ (25 premiers ensembles) et $\pi$ (en pointillé)}
+	\caption{graphes des fonctions $\sigma_{R_k}$ pour $k \leq 25$ (i.e. les 25 premiers ensembles) et $\pi$ (en pointillé)}
 	\label{fig:prob_sample}
 \end{figure}
 \end{document}
