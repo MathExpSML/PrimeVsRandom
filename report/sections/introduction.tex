@@ -1,6 +1,19 @@
 \documentclass[../main.tex]{subfile}
 
 \begin{document}
-Le travail qui est présenté dans ce rapport porte sur les nombres premiers et plus particulièrement sur leur distribution. L'objectif est d'évaluer la place de la distribution des nombres premiers dans des conjectures sur ceux-ci. Dans un premier temps, nous avons créer des ensembles aléatoires qui partagent la même distribution que l'ensemble des nombres premiers. Pour ce faire, nous avons trouver deux approches différentes qui amènent à des résultats étrangement différents. Ensuite, nous avons testé deux conjectures sur nos ensembles aléatoires et analysé les résultats.
+
+\theoremstyle{plain}
+\newtheorem{Thm}{Théorème}
+
+Le travail qui est présenté dans ce rapport porte sur les nombres premiers et plus particulièrement sur leur distribution. L'objectif est d'évaluer la place de la distribution des nombres premiers dans des conjectures sur ceux-ci. Nous désignerons par $\mathbb{P}$ l'ensemble des nombres premiers et par $\pi$ la fonction définie comme suit : $\pi : [0, \infty [ \rightarrow \mathbb{R}, x \mapsto \# \{p \in \mathbb{P}$ | $p \leqslant x\}$. 
+
+Dans un premier temps, nous avons créer des ensembles aléatoires qui partagent la même distribution que l'ensemble des nombres premiers. Pour créer les ensembles et vérifier leur fiabilité à la distribution des nombres premiers, nous avons utilisé le théorème des nombres premiers : 
+\begin{Thm}[Théorème des Nombres Premiers]
+\label{TNP}
+	Quand $x$ tend vers l'infini : 
+	\[ \pi(x) \sim \frac{x}{\log(x)}  \] 
+\end{Thm}
+Nous allons aussi utiliser la fonction Li : $ [2, \infty [ \rightarrow \mathbb{R}, x \mapsto \int_{2}^{x} \frac{dt}{\log(t)} $ et la relation $\pi(x) \sim$ Li($x$) quand $x$ tend vers l'infini.  Par deux approches différentes, nous avons créer 400 ensembles aléatoires sur lesquels nous avons testé deux conjectures. 
+ 
 \clearpage
 \end{document}
