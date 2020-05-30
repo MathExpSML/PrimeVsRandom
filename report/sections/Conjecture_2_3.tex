@@ -33,15 +33,15 @@ Le graphique \ref{fig:failures_2_3} ci-dessous représente en abscisses le nombr
 \label{fig:failures_2_3}
 \end{figure}
 
-Nous debuterons par remarquer que l'existence d'un entier $p$ répondant aux critères de la conjecture n'est pas rare. En effet, pour $ n \in \{6,...,10000\}$, l'assertion est vérifiée par près de 99\% des entiers $n$ testés pour chaque ensemble (moins de 650 erreurs). 
+Nous débuterons par remarquer que l'existence d'un entier $p$ répondant aux critères de la conjecture n'est pas rare. En effet, pour $ n \in \{6,...,10000\}$, l'assertion est vérifiée par près de 99\% des entiers $n$ testés pour chaque ensemble (moins de 650 erreurs). 
 
-Les ensembles non restreints aux nombres impairs génerent tout de même un nombre assez élevé d'erreurs: plus de 200 erreurs pour la quasi-totalité de ces ensembles.
+Les ensembles non restreints aux nombres impairs génèrent tout de même un nombre assez élevé d'erreurs: plus de 200 erreurs pour la quasi-totalité de ces ensembles.
 De plus, ces erreurs persistent assez tardivement: pour la majorité de ces ensembles, il existe (au moins) un entier $n > 5000$ pour lequel l'assertion est fausse. 
 
 
-Les ensembles composés de nombres impairs ont cependant de bien meilleurs performances . Ceux-ci ont un faible nombre d'erreurs (moins de 50 pour les ensembles générés par l'algorithme probabilistique, moins de 100 pour les ensembles générés par les algorithmes analytiques, voir figure \ref{fig:boxplots_Odd}). 
+Les ensembles composés de nombres impairs ont cependant de bien meilleurs performances . Ceux-ci ont un faible nombre d'erreurs (moins de 50 pour les ensembles générés par l'algorithme probabiliste, moins de 100 pour les ensembles générés par les algorithmes analytiques, voir figure \ref{fig:boxplots_Odd}). 
 De plus, le plus grand entier pour lequel l'assertion n'est pas vérifiée est relativement faible: cela signifie que pour tout entier $n > 1500$, l'assertion est vérifiée. Pour plus de trois quarts des ensembles aléatoires générés par l'algorithme probabiliste, on a même l'assertion vérifiée pour tout $n > 500$.
-Finalement, on remarque aussi que les ensembles crées par l'algorithme probabiliste ont des performances sensiblement meilleures. Cela est surement du au fait qu'ils possèdent sensiblement plus d'élements que les autre ensembles (voir figure \ref{fig:comparison_all_random_sets}), ou alors parce que leur distribution est plus proche de celles des nombres premiers.
+Finalement, on remarque aussi que les ensembles crées par l'algorithme probabiliste ont des performances sensiblement meilleures. Cela est surement du au fait qu'ils possèdent sensiblement plus d'éléments que les autre ensembles (voir figure \ref{fig:comparison_all_random_sets}), ou alors parce que leur distribution est plus proche de celles des nombres premiers.
 
 Les diagrammes en boites \ref{fig:boxplots} et \ref{fig:boxplots_Odd} ci-dessus offrent un aperçu de la distribution des erreurs. La seconde figure se concentre sur les ensembles impairs afin de faciliter la lecture du graphique.
 
@@ -70,7 +70,7 @@ Il existe trois ensembles vérifiant l'assertion pour tout $n, 100 \leq n \leq 1
 Pour ces ensembles, l'assertion tient, comme pour les nombres premiers, au moins jusqu'à $n=10^6$.  
 
 De plus, au delà de 100, il existe 50 ensembles ayant moins de 5 erreurs. 
-Il apparait alors que la probabilité d'une erreur diminue, et tend vers 0, lorsque n devient grand, comme le fait remarquer le graphique ci-dessous, représentant le nombre moyen d'erreurs sur un interval $[6+10n, 6+11n[$.
+Il apparait alors que la probabilité d'une erreur diminue, et tend vers 0, lorsque n devient grand, comme le fait remarquer le graphique ci-dessous, représentant le nombre moyen d'erreurs sur un intervalle $[6+10n, 6+11n[$.
 \begin{figure}[H]
 \centering
 \includegraphics{conjecture_2_3_10k_bin5_line}
