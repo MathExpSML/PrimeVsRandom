@@ -21,14 +21,14 @@ sig_x = sapply(x,FUN=sig)
 # Generate a data frame to plot multiple lines
 comparison <- rbind(  data.frame(x, label = "pi", value = pi_x),
   data.frame(x, label = "Li", value = Li_x),
-  data.frame(x, label = "rho", value = rho_x),
-  data.frame(x, label = "sigma", value = sig_x))
+  data.frame(x, label = "sigma_k", value = rho_x),
+  data.frame(x, label = "sigma_k'", value = sig_x))
 
-lt = c("pi"="solid", "Li"="solid", "rho"="dashed", "sigma"="dashed")
-alphas = c("Li" = 0.5, "pi"=1,"rho"=1,"sigma"=1)
-cols = c(pi="red",Li = "orange", sigma= "blue", rho="purple")
+lt = c("pi"="solid", "Li"="solid", "sigma_k"="dashed", "sigma_k'"="dashed")
+alphas = c("Li" = 0.5, "pi"=1,"sigma_k"=1,"sigma_k'"=1)
+cols = c(pi="red",Li = "orange", "sigma_k"= "blue", "sigma_k'"="purple")
 
-comp <- comparison %>% filter(label %in% c("pi","Li","rho")) %>% 
+comp <- comparison %>% filter(label %in% c("pi","Li","sigma_k")) %>% 
   ggplot(aes(x, value, color = label,linetype=factor(label), alpha = label)) + 
   geom_line() + 
   scale_linetype_manual(values=lt, na.value = "solid") +
@@ -40,7 +40,7 @@ comp <- comparison %>% filter(label %in% c("pi","Li","rho")) %>%
   guides(alpha = FALSE, linetype = FALSE)
 ggsave("comparison_sigma_prob.pdf",comp,  width = 14, height = 6,unit="cm", path="images")
 
-comp <- comparison %>% filter(label %in% c("pi","Li","sigma")) %>% 
+comp <- comparison %>% filter(label %in% c("pi","Li","sigma_k'")) %>% 
   ggplot(aes(x, value, color = label)) + 
   geom_line(aes(linetype=label, alpha = label)) +
   scale_linetype_manual(values=lt, na.value = "solid") +

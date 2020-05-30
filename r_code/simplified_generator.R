@@ -28,4 +28,4 @@ replicate(100,gen_sample(10^7))
 
 i =0 
 p<- "data/odd_prob_sets/"
-replicate(100,gen_sample(10^7))
+replicate(100,gen_odd_sample(10^7))
