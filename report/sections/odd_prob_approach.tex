@@ -56,15 +56,15 @@ Notons $\sigma_{R'}(n)$ l'esperance de $\sigma_{R'_k}(n)$.
 L'erreur entre l'esperance de $\sigma_{R'}(n)$ et Li$(n)$ peut aussi être bornée:
 \[ \begin{aligned}
 \left| \sigma_{R'}(n) - Li(n) \right|
-&= \left| 4 + (\sum_{k=5}^m \frac{2}{\log 2k-1})
-		- (\int_2^n \frac{dt}{\log t} ) \right| \\
-&= \left| 4 + (\sum_{k=5}^m \frac{2}{\log 2k-1})
-		- (Li(9) + \int_9^n \frac{dt}{\log t} ) \right| \\
-&\leq \left| (\sum_{k=5}^m \frac{2}{\log 2k-1})
-		- (\int_9^n \frac{dt}{\log t} ) \right| + \left| 4 - Li(9)\right| \\
+&= \left| 4 + \left(\sum_{k=5}^m \frac{2}{\log 2k-1}\right)
+		- \left(\int_2^n \frac{dt}{\log t} \right) \right| \\
+&= \left| 4 + \left(\sum_{k=5}^m \frac{2}{\log 2k-1}\right)
+		- \left(Li(9) + \int_9^n \frac{dt}{\log t} \right) \right| \\
+&\leq \left| \left(\sum_{k=5}^m \frac{2}{\log 2k-1}\right)
+		- \left(\int_9^n \frac{dt}{\log t} \right) \right| + \left| 4 - Li(9)\right| \\
 &= \left| \sum_{k=5}^m \frac{2}{\log 2k - 1} - 
 		\int_{2k-1}^{2k+1} \frac{dt}{\log t} \right| + Li(9) - 4 \\ 
-&< (\sum_{k=5}^m \frac{2}{\log 2k-1} - \frac{2}{\log{(2(k+1)-1)}})
+&< \left(\sum_{k=5}^m \frac{2}{\log 2k-1} - \frac{2}{\log{(2(k+1)-1)}}\right)
 		+ Li(9) - 4 \\
 &= \frac{2}{\log 9} - \frac{2}{\log (2m + 1)} + Li(9) - 4 \\
 &< \frac{2}{\log 9} + Li(9) - 4	< 2		
