@@ -6,7 +6,7 @@
 Bien que ces ensembles aléatoires suivent la distribution de $\pi(x)$, il manque une propriété importante des nombres premiers: à l'exception de $2$, tous les nombres premiers sont impairs.
 Nous allons alors modifier l'algorithme mentionné précédemment afin de générer des ensembles ayant cette propriété. 
 %Soit $O_n := E_n \cap 2 \mathbb{N} +1$ l'ensemble des entiers impairs inférieurs à $n$. 
-Soient alors les ensembles $R'_{k} \subset \{2\mathbb{N}+1 \cup \{2\}\}$ tels que $\forall~i \in \{2\mathbb{N}+1 \cup \{2\}\}$, le probabilité que $i$ soit dans l'ensemble $R'_{k}$ soit:
+Soient alors les ensembles $R'_{k} \subset \{(2\mathbb{N}+1) \cup \{2\}\}$ tels que $\forall~i \in \{(2\mathbb{N}+1) \cup \{2\}\}$, le probabililité que $i$ soit dans l'ensemble $R'_{k}$ soit:
 
 \[
 P(i \in R'_{k}) = 
@@ -14,16 +14,16 @@ P(i \in R'_{k}) =
     \begin{array}{cl}
          0 & \mbox{si}~i = 1 \\
          1 & \mbox{si}~ 2 \leq i < 9 \\
-         \frac{2}{\log n} & \mbox{si}~i \geq 9
+         \frac{2}{\log i} & \mbox{si}~i \geq 9
     \end{array}
 \right.
 \]
 
-Le fait que $P(i \in R'_{k}) = 1$ pour les entiers impairs inférieurs à 9 découle du au fait que $2/\log(n) > 1$ pour ces entiers.
+Le fait que $P(i \in R'_{k}) = 1$ pour les entiers impairs inferieurs à 9 découle du fait que $2/\log(n) > 1$ pour ces entiers.
 
 Ces ensembles débutent tous avec les mêmes éléments: $ (2,3,5,7,...) $, mais contiennent ensuite des éléments choisis aléatoirement à partir du 5\up{e} terme. 
-Pour tout $n \in 2\mathbb{N}+1, n\geq 5$, les fonctions $\sigma_{R'_k}$ sont donc des variables aléatoires. Pour simplifier l'écriture dans les sommations ci-dessous, nous posons, pour tout $n \in 2\mathbb{N} + 1, m:= \lfloor 2/n \rfloor$, de sorte que $2m-1$ soit bien le plus grand entier impair inférieur à $n$.
-Notons $\sigma_{R'}$ la fonction mesurant l'espérance des fonctions $\sigma_{R'_k}$ en fonction de $n$.
+Pour tout $n \in 2\mathbb{N}+1, n\geq 5$, les fonctions $\sigma_{R'_k}$ sont donc des variables aléatoires. Pour simplfier l'écriture dans les sommations ci-dessous, nous posons, pour tout $n \in 2\mathbb{N} + 1, m:= \lfloor n/2 \rfloor$, de sorte que $2m-1$ soit bien le plus grand entier impair inférieur à $n$.
+Notons $\sigma_{R'}(n)$ l'esperance de $\sigma_{R'_k}(n)$.
 \[
 \sigma_{R'}(n)
 = 4 + \frac{2}{\log 9} + \frac{2}{\log 11} + ...
@@ -69,7 +69,7 @@ L'erreur entre l'espérance de $\sigma_{R'}(n)$ et Li$(n)$ peut aussi être born
 &= \frac{2}{\log 9} - \frac{2}{\log (2m + 1)} + Li(9) - 4 \\
 &< \frac{2}{\log 9} + Li(9) - 4	< 2		
 \end{aligned} \]
-La première inégalité résulte de l'inégalité triangulaire et de $Li(9) > 4$. La seconde inégalité vient du fait que $1/\log(x)$ est positive et décroissante sur l'intervalle $[5,\infty[$, 
+La première inégalité résulte de l'inégalité triangulaire et de $Li(9) > 4$. Le second inégalité vient du fait que $x \mapsto 1/\log(x)$ est positive et décroissante sur l'intervalle $[5,\infty[$, 
 et donc que $\frac{2}{\log n} > \int_n^{n+2}\frac{dt}{\log t} > \frac{2}{\log (n+2)}$
 
 Nous obtenons alors des ensembles aléatoires, constitués de nombres impairs (sauf 2), suivant la distribution de Li$(x)$. 
@@ -78,14 +78,14 @@ Les figures suivantes montrent la courbe de la fonction $\sigma_{R'}$ (figure \r
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,height=6cm]{comparison_odd_prob}
-\caption{Graphes des fonctions $\pi$ et $\sigma$.}
-\label{fig:comparison_sigma_prob}
+\caption{Graphes des fonctions $\pi$ et $\sigma_R'$.}
+\label{fig:comparison_odd_prob}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{prob_sample_odd}
-	\caption{graphes des fonctions $\sigma_k$ pour $k \leq 25$ (25 premiers ensembles impairs) et $\pi$}
+	\caption{graphes des fonctions $\sigma_{R'_k}$ pour $k \leq 25$ (25 premiers ensembles impairs) et $\pi$}
 	\label{fig:prob_sample_odd}
 \end{figure}
 

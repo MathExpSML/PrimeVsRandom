@@ -4,12 +4,12 @@
     \label{sec:test1}
     
 \subsection{Approche probabiliste}
-Soient $E_n := \left\{ k \in N^* ~|~k < n \right\}$ l'ensemble des entiers inférieurs à n, $ P_n := \{k \in E_n~|~ k$ est premier$ \}$ l'ensemble des nombres premiers inférieurs à n, et la fonction $\pi (n) := \#P_n$, le nombres de premiers inferieurs à n.
+Soient $E_n := \left\{ k \in \mathbb{N}^* ~|~k < n \right\}$ l'ensemble des entiers inférieurs à $n$, $ P_n := \{k \in E_n~|~ k$ est premier$ \}$ l'ensemble des nombres premiers inférieurs à $n$, et la fonction $\pi (n) := \#P_n$, le nombres de premiers inferieurs à $n$.
 
 On a vu que la fonction Li$(x) = \int_2^x \frac{dt}{\log t}$ 
-donne une bonne approximation de $\pi(n)$.
+donne une bonne approximation de $\pi(x)$.
 
-Cette fonction peut être approximée par la somme de Riemann de pas contant $=1$:
+Cette fonction peut être approximée par la somme de Riemann de pas constant égal à 1.
 \begin{equation}
 \label{eq:SommeDeRiemann}
 S \left({\frac{1}{\log x}} \right)
@@ -18,10 +18,10 @@ S \left({\frac{1}{\log x}} \right)
 \end{equation}
 
 
-La fonction $\frac{1}{\log x}$ est une fonction continue, décroissante et positive sur l'interval $\left[2, \infty \right[$. 
-L'erreur entre Li$(n)$ et la fonction en escalier ci-dessus est donc bornée. 
+La fonction $x \mapsto \frac{1}{\log x}$ est une fonction continue, décroissante et positive sur l'interval $\left[2, \infty \right[$. 
+L'erreur entre Li$(x)$ et la fonction en escalier ci-dessus est donc bornée. 
  \[ 
-\left| S\left(\frac{1}{\log x}\right) - Li(n) \right|
+\left| S(\frac{1}{\log x}) - Li(x) \right|
 \leq \left| \sum_{k=2}^{n-1} \frac{1}{\log k} - \frac{1}{\log (k+1)} \right| 
  %= \left| \frac{1}{\log (n+1)} - \frac{1}{\log 2} \right|
  = \frac{1}{\log (2)} - \frac{1}{\log (n)}
@@ -32,36 +32,44 @@ L'erreur entre Li$(n)$ et la fonction en escalier ci-dessus est donc bornée.
 
 \subsubsection{Ensembles aléatoires} 
 
-Nous allons alors générer des ensembles aléatoires $R_{k} \subset \mathbb{N}, k \in \{1,...,100\}$ de sorte que:
+Nous allons utiliser (\ref{eq:SommeDeRiemann}) pour générer des ensembles aléatoires $R_{k} \subset \mathbb{N}, k \in \{1,...,100\}$, de sorte que chaque entier $n$ ait une probabilité de $1/\log(n)$ d'appartenir à l'ensemble. 
 \[
 \forall~i \in \mathbb{N}, P(i \in R_{k}) = 
 \left\{ 
     \begin{array}{cl}
          0 & \mbox{si}~i = 1 \\
          1 & \mbox{si}~i = 2 \\
-         \frac{1}{\log n} & \mbox{si}~i \geq 3
+         \frac{1}{\log i} & \mbox{si}~i \geq 3
     \end{array}
 \right.
 \]
-Ces ensembles seront construits jusqu'à $i = 10^7$.
+Ces ensembles seront construits jusqu'à $i = 10^7$: on a donc $R_k \subset \{1,...,10^7\}$. 
 
 Il est à noter deux cas particuliers:
 \begin{itemize} 
     \item Le nombre 1 est exclu. En effet, $\frac{1}{\log 1}$ n'est pas défini. Par définition, $1$ n'est pas un nombre premier.
-    \item Le nombre 2 est inclus par défaut. En effet, $P(2 \in R_{k_n}) = \frac{1}{\log 2} > 1$. De plus, le nombre 2 est par définition, un nombre premier.
+    \item Le nombre 2 est inclus par défaut. En effet, $P(2 \in R_k) = 1$ car $\frac{1}{\log 2} > 1$. De plus, le nombre 2 est par définition, un nombre premier.
 \end{itemize}
 
 
 La fonction $\sigma_{R_k}(n) := \# \{i \in R_{k} | i < n\}$ mesure donc la taille des ensembles jusqu'à un certain $n$. 
-Cette fonction est donc une variable aléatoire strictement inférieure à $n$ dont l'espérance est donnée par la formule suivante:
-\begin{equation}
-\label{eq:esperance}
-E[\sigma_{R_k}(n)] = 0 + 1 + \frac{1}{\log 3} + ... + \frac{1}{\log (n-1)}
-= 1 + \sum_{k=3}^{n-1} \frac{1}{\log k}
-\end{equation}
+Cette fonction est donc une variable aléatoire strictement inférieure à $n$ 
+dont l'espérance, que nous noterons $\sigma_R(n)$, est donnée par:
+\[ 
+\sigma_R(n) = 
+\sum_{i=1}^{n-1} 1 \cdot P(i \in R_k) 
+= 1 + \sum_{i=3}^{n-1} \frac{1}{\log i}
+\]
+%\begin{equation}
+%\label{eq:esperance}
+%E[\sigma_{R_k}(n)]
+%= \sum_{k=1}^{n-1} P(k \in R_k)
+%= 0 + 1 + \frac{1}{\log 3} + ... + \frac{1}{\log (n-1)}
+%= 1 + \sum_{k=3}^{n-1} \frac{1}{\log k}
+%\end{equation}
 
-Notons $\sigma_R$ (sans indicer $R$) l'esérance de cette fonction.
-On observe alors que l'erreur entre $\sigma_R(n)$ et la somme de Riemann (\ref{eq:SommeDeRiemann}) est constante, égale à
+%Notons $\sigma_R(n)$ l'ésperance de cette variable aléatoire.
+L'erreur entre $\sigma_R(n)$ et la somme de Riemann (\ref{eq:SommeDeRiemann}) est constante, égale à
 $\frac{1}{\log 2}- 1 < 1$.
 
 Les ensembles aléatoires générés de cette manière suivront donc une distribution similaire à Li$(x)$, et donc à $\pi(x)$
@@ -69,8 +77,7 @@ Les ensembles aléatoires générés de cette manière suivront donc une distrib
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{comparison_sigma_prob}
-
-\caption{Graphes des fonctions $\pi$, Li and $\sigma$. Li et $\sigma$ sont superposées.}
+\caption{Graphes des fonctions $\pi$, Li and $\sigma_R$. Li et $\sigma_R$ sont superposées.}
 \label{fig:comparison_sigma_prob}
 \end{figure}
 
