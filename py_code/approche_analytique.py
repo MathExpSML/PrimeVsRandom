@@ -38,7 +38,7 @@ def Q(N):
 
 
 def get_set(N, file_name):
-    """Renvoit, sous forme de liste, l'ensemble aléatoire file_name, jusqu'à N."""
+    """Renvoit, sous forme de liste, l'ensemble aleatoire file_name, jusqu'a N."""
     ensemble = []
     of = open(file_name, 'r')
     line = of.readline()
@@ -53,7 +53,7 @@ def get_set(N, file_name):
     
 
 def record_set(N, file_name):
-    """Enregistre un ensemble aléatoire, jusqu'à N, dans file_name."""
+    """Enregistre un ensemble aleatoire, jusqu'a N, dans file_name."""
     of = open(file_name, "w")
     for number in Q(N):
         of.write(str(number) + "\n")
@@ -77,7 +77,7 @@ def sigma(x):
 
 
 def Pi(x):
-    """Alternative à Pi(x)."""
+    """Alternative a Pi(x)."""
     a, b = 0, len(p) - 1
     if p[b] <= x:
         return b+1
@@ -102,7 +102,6 @@ def ali(x):
     """Return ali(x) such that li(ali(x)) = x."""
     return findroot(lambda y: li(y) - x, - 7).real
 
-################################################################################
 
 def test1():
     """Test whether sigma(x) ~ x/log(x) by plotting the graph of sigma(x) / (x/(log(x))."""
@@ -126,7 +125,7 @@ def test2():
 
 def graphe():
     """Plot the graph of Li(x), Pi(x), sigma(x), x/log(x)."""
-    x = [i for i in range(100, (10**5)+1, 100)]
+    x = [i for i in range(10**4, 10**7 + 1, 10**4)]
     y1 = [Li(i) for i in x]
     y2 = [Pi(i) for i in x]
     y3 = [sigma(i) for i in x]
@@ -135,7 +134,7 @@ def graphe():
     g2, = plt.plot(x, y2)
     g3, = plt.plot(x, y3)
     g4, = plt.plot(x, y4)
-    plt.legend([g1, g2, g3, g4], ['Li(x)', 'pi(x)', 'sigma(x)', 'x/log(x)'])
+    plt.legend([g2, g3, g4], ['pi(x)', 'sigma(x)', 'x/log(x)'])
     plt.title("Random Sets")
     plt.xlabel('x')
     plt.savefig('images/analytic_approach_sets.pdf')

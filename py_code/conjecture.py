@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import approche_analytique as analytic
 
 def count_twins(N, ens):
-    """Fonction qui compte le nombre de nombres jumeaux inférieurs à x dans set."""
+    """Fonction qui compte le nombre de nombres jumeaux inferieurs a x dans set."""
     k = 0
     for i in range(len(ens)-1):
         if ens[i+1] < N:
@@ -14,7 +14,7 @@ def count_twins(N, ens):
 
 def twin_primes(N):
     """Fonction qui renvoit un graphe de fonctions qui comptent le nombre
-    de nombres jumeaux inférieur à x."""
+    de nombres jumeaux inferieurs a x."""
     x = [i for i in range(10, N+1, 10)]
     path_q_odd = "~/analytique_odd_set"
     path_q = "~/analytique_set_"
@@ -46,6 +46,3 @@ def twin_primes(N):
     plt.title("Twins")
     plt.xlabel('x')
     plt.savefig('images/twins.pdf')
-
-N = 10**6 
-twin_primes(N)
