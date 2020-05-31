@@ -1,11 +1,11 @@
 \documentclass[../main.text]{report}
 \subsection{Code: Création d'ensembles aléatoires}
-Les codes des appendices \ref{code:generate_set_p} et \ref{code:generate_odd_set_p} sont ceux utilisés pour générer les ensembles aléatoires par algorithme probabiliste. Ceux-ci possèdent des complications inutiles, dus au fait que nous enregistrions au départ les ensembles sous forme de tableau de données. Nous montrons ces algorithmes tels quels, car ce sont ceux qui ont été utilisés pour générer les ensembles. Nous proposons cependant en appendice \ref{code:simplified_generator} une version simplifiée de code. 
+Les codes des appendices \ref{code:generate_set_p} et \ref{code:generate_odd_set_p} sont ceux utilisés pour générer les ensembles aléatoires par algorithme probabiliste. Ceux-ci possèdent des complications inutiles, dues au fait que nous enregistrions au départ les ensembles sous forme de tableau de données. Nous montrons ces algorithmes tels quels, car ce sont ceux qui ont été utilisés pour générer les ensembles. Nous proposons cependant en appendice \ref{code:simplified_generator} une version simplifiée de code. 
 
 
 \subsubsection{Création d'ensembles probabiliste}
 \label{code:generate_set_p}
-Le code suivant genere 100 ensembles aléatoires non-impairs. 
+Le code suivant génère 100 ensembles aléatoires non-impairs. 
 \lstinputlisting[language=R]{../r_code/generate_samples2.R}
 
 \clearpage
@@ -18,12 +18,16 @@ Le code suivant genere 100 ensembles aléatoires non-impairs.
 \subsubsection{Création d'ensembles probabiliste impairs}
 \lstinputlisting[language=R]{../r_code/simplified_generator.R}
 
+\subsubsection{Création d'ensembles par l'approche analytique}
+\label{code:approche_analytique}
+Le code qui suit comprend toutes les fonctions utilisées pour créer les ensembles aléatoires via l'approche analytique, les manipuler et tracer tous les graphes de la section \ref{sec:analytique}.
+\lstinputlisting[language=Python]{../py_code/approche_analytique.py}
 
 \clearpage
 \subsection{Seconde conjecture} 
 \label{code:conj_2_3_report}
-\subsubsection{Raport de conjecture}
-Le code suivant génere un tableau de donnée pour chaque ensemble, contenant le nombre d'entiers vérifiant la conjecture, le nombre d'echec et le plus grand entier ne vérifiant pas la conjecture.
+\subsubsection{Rapport de conjecture}
+Le code suivant génère un tableau de donnée pour chaque ensemble, contenant le nombre d'entiers vérifiant la conjecture, le nombre d'échec et le plus grand entier ne vérifiant pas la conjecture.
 \lstinputlisting[language=Python]{../py_code/conjecture_2_3.py}
 
 \clearpage
@@ -36,3 +40,35 @@ Le code suivant vérifie l'assertion pour tout entier, après avoir donné fourn
 \label{code:Error_mapping}
 \lstinputlisting[language=Python]{../py_code/conjecture2_3_error_mapping.py}
 
+\subsection{Code pour le test de la conjecture \ref{conj:twinprimes}}
+\lstinputlisting[language=Python]{../py_code/conjecture.py}
+
+\subsection{Graphes supplémentaires}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[keepaspectratio=true, width=12cm]{analytic_sets.pdf}
+ \caption{Graphe de $\sigma_{Q}$ pour tous les ensembles $Q$ }
+ \label{im:image212}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[keepaspectratio=true, width=12cm]{analytic_approach_sets_1.pdf}
+ \caption{Figure \ref{im:image1} pour $x$ jusqu'à $10^4$ }
+ \label{im:image2131}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[keepaspectratio=true, width=12cm]{analytic_approach_sets_2.pdf}
+ \caption{Figure \ref{im:image1} pour $x$ jusqu'à $10^5$ }
+ \label{im:image2132}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[keepaspectratio=true, width=12cm]{analytic_approach_sets_3.pdf}
+ \caption{Figure \ref{im:image1} pour $x$ jusqu'à $10^6$ }
+ \label{im:image2133}
+\end{figure}

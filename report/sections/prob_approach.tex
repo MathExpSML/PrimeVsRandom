@@ -4,7 +4,7 @@
     \label{sec:test1}
     
 \subsection{Approche probabiliste}
-Soient $E_n := \left\{ k \in \mathbb{N}^* ~|~k < n \right\}$ l'ensemble des entiers inférieurs à $n$, $ P_n := \{k \in E_n~|~ k$ est premier$ \}$ l'ensemble des nombres premiers inférieurs à $n$, et la fonction $\pi (n) := \#P_n$, le nombres de premiers inferieurs à $n$.
+Soient $E_n := \left\{ k \in \mathbb{N}^* ~|~k < n \right\}$ l'ensemble des entiers inférieurs à $n$, $ P_n := \{k \in E_n~|~ k$ est premier$ \}$ l'ensemble des nombres premiers inférieurs à $n$, et la fonction $\pi (n) := \#P_n$, le nombres de premiers inférieurs à $n$.
 
 On a vu que la fonction Li$(x) = \int_2^x \frac{dt}{\log t}$ 
 donne une bonne approximation de $\pi(x)$.
@@ -18,10 +18,10 @@ S \left({\frac{1}{\log x}} \right)
 \end{equation}
 
 
-La fonction $x \mapsto \frac{1}{\log x}$ est une fonction continue, décroissante et positive sur l'interval $\left[2, \infty \right[$. 
+La fonction $x \mapsto \frac{1}{\log x}$ est une fonction continue, décroissante et positive sur l'intervalle $\left[2, \infty \right[$. 
 L'erreur entre Li$(x)$ et la fonction en escalier ci-dessus est donc bornée. 
  \[ 
-\left| S(\frac{1}{\log x}) - Li(x) \right|
+\left| S\left(\frac{1}{\log x}\right) - Li(x) \right|
 \leq \left| \sum_{k=2}^{n-1} \frac{1}{\log k} - \frac{1}{\log (k+1)} \right| 
  %= \left| \frac{1}{\log (n+1)} - \frac{1}{\log 2} \right|
  = \frac{1}{\log (2)} - \frac{1}{\log (n)}
